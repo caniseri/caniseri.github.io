@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Can Iseri | Builder · Writer · Athlete</title>
+<meta name="description" content="Can Iseri is a technical product builder, writer, and marathoner. Explore Katsuko projects Scorch, HardBeet, and Aurora, plus The Receiver and the ideas behind the work." />
+<script>
+  document.documentElement.classList.replace('no-js', 'js');
+  addEventListener('error', () => {
+    document.documentElement.classList.add('js-failed');
+    document.querySelectorAll('[inert]').forEach(el => { el.inert = false; });
+  });
+</script>
+
+<!--
+  ============================================================================
+  CAN ISERI: STATEMENT PORTFOLIO  (v3 · curated public profile)
+  ============================================================================
+  HOW TO CUSTOMIZE:
+    • Email ....... your address is set once in the  MAIL  const (script).
+    • Colors/font . change the CSS variables in the  :root { }  block.
+  No build step. Google Fonts use local fallbacks when offline. Open in a
+  browser, or drop the folder on Netlify / Vercel / GitHub Pages to publish.
+  ============================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400;1,9..144,500&amp;display=swap" rel="stylesheet" />
+
+<style>
+  /* ===================== DESIGN TOKENS ===================== */
+  :root{
+    --bg:        #09090C;
+    --bg-2:      #0F0F16;
+    --surface:   #14141F;
+    --text:      #F4F1EA;
+    --muted:     #9794A6;
+    --line:      rgba(244,241,234,.11);
+    --line-2:    rgba(244,241,234,.18);
+
+    --accent:    #FF4D2E;   /* vermilion, the statement */
+    --signal:    #B6F03C;   /* lime, small signals and motion accents */
+    --halo:      #6C4BFF;   /* violet, background glow only */
+
+    --maxw: 1180px;
+    --pad: clamp(20px, 5vw, 68px);
+    --radius: 20px;
+
+    --font-display: "Space Grotesk", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+    --font-serif: "Fraunces", Georgia, serif;
+
+    --ease: cubic-bezier(.19,1,.22,1);
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; scroll-padding-top:90px; -webkit-text-size-adjust:100%; }
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:var(--font-body); line-height:1.6; overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{ /* grain */
+    content:""; position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.045;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  ::selection{ background:var(--accent); color:#09090C; }
+
+  .skip-link{ position:fixed; top:10px; left:10px; z-index:10000; padding:.65rem 1rem; border-radius:100px; background:var(--text); color:var(--bg); font-family:var(--font-display); font-weight:700; transform:translateY(-160%); transition:transform .2s; }
+  .skip-link:focus{ transform:none; }
+
+  .wrap{ width:100%; max-width:var(--maxw); margin:0 auto; padding-inline:var(--pad); }
+  section{ position:relative; z-index:2; }
+
+  /* ---------- custom cursor (desktop, fine-pointer only) ---------- */
+  .cursor,.cursor-dot{ position:fixed; top:0; left:0; z-index:9999; pointer-events:none; border-radius:50%; mix-blend-mode:difference; background:#fff; translate:-50% -50%; }
+  .cursor{ width:34px; height:34px; border:1px solid #fff; background:transparent; transition:width .25s var(--ease), height .25s var(--ease), background .25s; }
+  .cursor.grow{ width:66px; height:66px; background:#fff; }
+  .cursor-dot{ width:6px; height:6px; }
+  @media (hover:hover) and (pointer:fine){ .js body{ cursor:none; } .js a,.js button,.js .magnetic{ cursor:none; } }
+  @media (hover:none),(pointer:coarse){ .cursor,.cursor-dot{ display:none; } }
+
+  .no-js .cursor,.no-js .cursor-dot,.no-js .intro,
+  .js-failed .cursor,.js-failed .cursor-dot,.js-failed .intro{ display:none; }
+  .no-js .reveal,.js-failed .reveal{ opacity:1; transform:none; }
+  @media (hover:hover) and (pointer:fine){ .js-failed body,.js-failed a,.js-failed button,.js-failed .magnetic{ cursor:auto; } }
+
+  /* ---------- scroll progress ---------- */
+  .progress{ position:fixed; top:0; left:0; height:3px; width:0; background:linear-gradient(90deg,var(--accent),var(--signal)); z-index:9998; }
+
+  /* ---------- intro reveal ---------- */
+  .intro{ position:fixed; inset:0; z-index:9990; background:var(--bg); display:grid; place-items:center; overflow:hidden; }
+  .intro.done{ pointer-events:none; }
+  .intro .curtain{ position:absolute; inset:0; background:var(--accent); transform-origin:top; }
+  .intro .mark{ position:relative; font-family:var(--font-display); font-weight:700; letter-spacing:-.02em; text-transform:uppercase; font-size:clamp(2.2rem,9vw,6rem); color:var(--text); overflow:hidden; }
+  .intro .mark span{ display:inline-block; transform:translateY(110%); }
+
+  h1,h2,h3{ font-family:var(--font-display); font-weight:700; line-height:1.0; letter-spacing:-.025em; }
+  /* Anton on the major headlines only (per request). Everything else keeps Space Grotesk. */
+  /* To scope Anton differently, add/remove selectors below. */
+  .section-title,          /* all section titles */
+  .contact h2{             /* the closing "Hire the person who ships." */
+    font-family:"Anton", var(--font-display); font-weight:400; letter-spacing:.02em;
+  }
+  .section-title{ font-size:clamp(2rem,5.4vw,3.6rem); margin:.5rem 0 1.4rem; }
+  .idx{ font-family:var(--font-display); font-weight:700; color:var(--accent); font-size:.85rem; letter-spacing:.05em; }
+  .eyebrow{ font-family:var(--font-display); font-size:.78rem; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--muted); display:inline-flex; align-items:center; gap:.6rem; }
+  .eyebrow::before{ content:""; width:26px; height:2px; background:var(--accent); }
+  .serif{ font-family:var(--font-serif); font-style:italic; }
+
+  /* ---------- links with drawn underline ---------- */
+  .ul{ position:relative; }
+  .ul::after{ content:""; position:absolute; left:0; bottom:-2px; height:1.5px; width:100%; background:currentColor; transform:scaleX(0); transform-origin:right; transition:transform .4s var(--ease); }
+  .ul:hover::after{ transform:scaleX(1); transform-origin:left; }
+
+  /* ---------- buttons ---------- */
+  .btn{ font-family:var(--font-display); font-weight:700; font-size:.92rem; padding:.85rem 1.5rem; border-radius:100px; border:1.5px solid var(--line-2); background:transparent; color:var(--text); display:inline-flex; align-items:center; gap:.55rem; transition:transform .2s var(--ease), background .25s, color .25s, border-color .25s; }
+  .btn:hover{ transform:translateY(-2px); border-color:var(--text); }
+  .btn-primary{ background:var(--accent); border-color:var(--accent); color:#09090C; }
+  .btn-primary:hover{ background:#fff; border-color:#fff; }
+  .btn .arw{ transition:transform .25s var(--ease); }
+  .btn:hover .arw{ transform:translateX(4px); }
+  .magnetic{ display:inline-flex; }
+
+  /* ---------- nav ---------- */
+  header.nav{ position:sticky; top:0; z-index:45; backdrop-filter:blur(14px); background:color-mix(in srgb,var(--bg) 74%, transparent); border-bottom:1px solid var(--line); }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; height:70px; }
+  .brand{ font-family:var(--font-display); font-weight:700; font-size:1.12rem; display:flex; align-items:center; gap:.7rem; }
+  .brand small{ font-family:var(--font-body); font-weight:500; font-size:.72rem; color:var(--muted); letter-spacing:.04em; }
+  .nav-links{ display:flex; align-items:center; gap:1.9rem; }
+  .nav-links a.link{ font-size:.9rem; color:var(--muted); font-weight:500; transition:color .2s; }
+  .nav-links a.link:hover{ color:var(--text); }
+  .nav-toggle{ display:none; background:none; border:0; color:var(--text); font-size:1.5rem; }
+
+  /* ---------- hero ---------- */
+  .hero{ padding:clamp(46px,8vw,110px) 0 clamp(36px,5vw,72px); position:relative; }
+  .hero-glow{ position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+  .hero-glow span{ position:absolute; border-radius:50%; filter:blur(100px); }
+  .hero-glow .g1{ width:460px; height:460px; background:var(--accent); top:-140px; right:-70px; opacity:.24; }
+  .hero-glow .g2{ width:400px; height:400px; background:var(--halo); bottom:-160px; left:-80px; opacity:.26; }
+  .hero-inner{ position:relative; z-index:2; }
+  .hero h1{ font-size:clamp(3.4rem,14vw,11rem); line-height:.88; text-transform:uppercase; margin:1rem 0 .3rem; }
+  .hero h1 .outline{ -webkit-text-stroke:1.6px var(--text); color:transparent; }
+  .hero .lede{ font-size:clamp(1.15rem,2.5vw,1.65rem); max-width:660px; margin-top:1.5rem; font-weight:400; line-height:1.45; }
+  .hero .lede .serif{ color:var(--accent); }
+  .rotator{ color:var(--accent); font-weight:600; }
+  .rotator::after{ content:"▍"; color:var(--signal); font-weight:400; margin-left:1px; animation:blink 1s steps(1) infinite; }
+  @keyframes blink{ 50%{ opacity:0 } }
+  .hero-ctas{ display:flex; flex-wrap:wrap; gap:.9rem; align-items:center; margin-top:2.3rem; }
+  .hero-ctas .small{ font-size:.9rem; color:var(--muted); }
+  .hero-facts{ display:flex; flex-wrap:wrap; gap:1.4rem 2.6rem; margin-top:2.8rem; color:var(--muted); font-size:.9rem; }
+  .hero-facts b{ color:var(--text); font-family:var(--font-display); font-weight:700; }
+
+  /* ---------- marquee ---------- */
+  .marquee{ border-block:1px solid var(--line); background:var(--bg-2); overflow:hidden; padding:.85rem 0; }
+  .m-track{ display:flex; gap:2.4rem; white-space:nowrap; width:max-content; animation:scroll 30s linear infinite; }
+  .marquee:hover .m-track{ animation-play-state:paused; }
+  .m-track span{ font-family:var(--font-display); font-weight:700; font-size:1.3rem; text-transform:uppercase; color:var(--text); display:inline-flex; align-items:center; gap:2.4rem; }
+  .m-track span::after{ content:"✦"; color:var(--accent); font-size:.85rem; }
+  @keyframes scroll{ to{ transform:translateX(-50%) } }
+
+  /* ---------- generic band ---------- */
+  .band{ padding:clamp(64px,9vw,116px) 0; }
+  .band + .band{ border-top:1px solid var(--line); }
+  .lead{ font-size:clamp(1.05rem,2vw,1.28rem); color:var(--muted); max-width:720px; }
+
+  /* ---------- overview ---------- */
+  .hire{ background:linear-gradient(180deg,var(--bg-2),transparent 70%); }
+  .hire-top{ display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:1rem; }
+  .hire-grid{ display:grid; grid-template-columns:1fr 1.2fr; gap:clamp(1.4rem,4vw,3rem); margin-top:2rem; }
+  .looking{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1.7rem; }
+  .looking h3{ font-size:1.15rem; margin-bottom:1.1rem; }
+  .looking dl{ display:grid; grid-template-columns:auto 1fr; gap:.75rem 1.2rem; }
+  .looking dt{ color:var(--muted); font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; padding-top:.15rem; }
+  .looking dd{ font-family:var(--font-display); font-weight:700; font-size:1rem; }
+  .pitch{ display:flex; flex-direction:column; gap:1rem; }
+  .pitch .p-big{ font-family:var(--font-body); font-style:normal; font-weight:500; font-size:clamp(1.25rem,2.4vw,1.65rem); line-height:1.48; letter-spacing:-.012em; }
+  .pitch .p-big b{ font-family:inherit; font-style:normal; font-weight:700; color:var(--accent); }
+  .proof{ display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem; margin-top:.4rem; }
+  .proof div{ border:1px solid var(--line); border-radius:14px; padding:1rem; }
+  .proof .n{ font-family:var(--font-display); font-weight:700; font-size:1.7rem; color:var(--accent); line-height:1; }
+  .proof .l{ color:var(--muted); font-size:.8rem; margin-top:.35rem; }
+  .hire-actions{ display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.6rem; }
+
+  /* ---------- about ---------- */
+  .about-grid{ display:grid; grid-template-columns:1.4fr .9fr; gap:clamp(2rem,5vw,4rem); align-items:center; }
+  .about-copy p{ color:var(--muted); font-size:1.08rem; margin-top:1.1rem; max-width:56ch; }
+  .about-copy p strong{ color:var(--text); font-weight:600; }
+  .portrait{ aspect-ratio:4/5; border-radius:var(--radius); border:1px solid var(--line); position:relative; overflow:hidden; background:var(--surface); }
+  .portrait img{ width:100%; height:100%; object-fit:cover; object-position:center 42%; }
+
+  /* ---------- work timeline ---------- */
+  .role{ display:grid; grid-template-columns:180px 1fr; gap:clamp(1rem,3vw,3rem); padding:1.9rem 0; border-top:1px solid var(--line); }
+  .role:hover .role-title{ color:var(--accent); }
+  .role .when{ font-family:var(--font-display); font-weight:700; color:var(--muted); font-size:.95rem; }
+  .role .where{ color:var(--signal); font-size:.78rem; margin-top:.3rem; letter-spacing:.06em; text-transform:uppercase; }
+  .role-title{ font-size:1.4rem; font-family:var(--font-display); font-weight:700; transition:color .2s; }
+  .role p{ color:var(--muted); margin-top:.5rem; max-width:60ch; }
+  .stackrow{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.9rem; }
+  .chip{ font-size:.77rem; color:var(--muted); border:1px solid var(--line); padding:.3rem .7rem; border-radius:100px; }
+  .edu{ display:flex; flex-wrap:wrap; gap:1.3rem; margin-top:2.2rem; }
+  .edu-card{ flex:1 1 240px; background:var(--bg-2); border:1px solid var(--line); border-radius:var(--radius); padding:1.4rem; }
+  .edu-card h3{ font-family:var(--font-display); font-size:1.05rem; margin-bottom:.2rem; }
+  .edu-card span{ color:var(--muted); font-size:.9rem; }
+
+  /* ---------- projects ---------- */
+  .projects{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.2rem; margin-top:1rem; }
+  .card{ background:var(--bg-2); border:1px solid var(--line); border-radius:var(--radius); padding:1.6rem; display:flex; flex-direction:column; gap:.7rem; min-height:230px; position:relative; overflow:hidden; transition:transform .25s var(--ease), border-color .25s; }
+  .card::after{ content:""; position:absolute; right:-40px; top:-40px; width:130px; height:130px; border-radius:50%; background:var(--accent); opacity:0; filter:blur(34px); transition:opacity .35s; }
+  .card:hover{ transform:translateY(-6px); border-color:color-mix(in srgb,var(--accent) 45%, var(--line)); }
+  .card:hover::after{ opacity:.22; }
+  .card .num{ font-family:var(--font-display); font-weight:700; font-size:.85rem; color:var(--accent); }
+  .card h3{ font-size:1.4rem; }
+  .card .desc{ color:var(--muted); font-size:.98rem; flex:1; }
+  .card .foot{ display:flex; align-items:center; justify-content:space-between; margin-top:.4rem; }
+  .status{ font-size:.7rem; font-family:var(--font-display); font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:.28rem .6rem; border-radius:100px; }
+  .status.live{ background:color-mix(in srgb,var(--signal) 20%, transparent); color:var(--signal); }
+  .status.beta{ background:color-mix(in srgb,var(--accent) 22%, transparent); color:var(--accent); }
+  .status.wip{ background:color-mix(in srgb,var(--halo) 30%, transparent); color:#bcacff; }
+  .card .go{ font-family:var(--font-display); font-weight:700; font-size:.9rem; display:inline-flex; gap:.35rem; }
+  .card .go::after{ content:"→"; transition:transform .2s var(--ease); }
+  .card:hover .go::after{ transform:translateX(4px); }
+
+  /* ---------- writing ---------- */
+  .writing{ display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(2rem,5vw,4rem); align-items:center; }
+  .cover{ aspect-ratio:992/1586; border-radius:8px; position:relative; overflow:hidden; border:1px solid var(--line); background:var(--surface); box-shadow:0 34px 64px -30px rgba(0,0,0,.85), inset 0 0 0 1px rgba(255,255,255,.04); }
+  .cover img{ width:100%; height:100%; object-fit:cover; }
+  .writing-copy .kicker{ font-family:var(--font-serif); font-style:italic; color:var(--accent); font-size:1.15rem; }
+  .writing-copy p{ color:var(--muted); font-size:1.08rem; margin-bottom:1rem; max-width:56ch; }
+  .writing-copy .quote{ font-family:var(--font-serif); font-style:italic; font-size:1.25rem; color:var(--text); border-left:3px solid var(--accent); padding-left:1rem; margin:1.4rem 0; }
+  .otherwriting{ margin-top:2.4rem; }
+  .idea-note{ border-top:1px solid var(--line); padding-top:1.25rem; }
+  .idea-note h3{ font-family:var(--font-display); font-size:1.15rem; margin:.35rem 0 .55rem; }
+  .idea-note p{ font-size:.96rem; margin:0; }
+
+  /* ---------- athletics ---------- */
+  .stats{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1.1rem; margin:1rem 0 2.4rem; }
+  .stat{ background:var(--bg-2); border:1px solid var(--line); border-radius:var(--radius); padding:1.6rem 1.4rem; }
+  .stat .sport-label{ font-family:var(--font-display); font-weight:700; color:var(--accent); font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
+  .stat h3{ font-family:var(--font-display); font-size:1.25rem; margin:.55rem 0 .45rem; }
+  .stat p{ color:var(--muted); font-size:.94rem; }
+
+  /* ---------- contact ---------- */
+  .contact{ text-align:center; padding:clamp(72px,11vw,150px) 0; position:relative; overflow:hidden; }
+  .contact .glow{ position:absolute; width:560px; height:560px; background:var(--accent); filter:blur(130px); opacity:.16; border-radius:50%; top:46%; left:50%; transform:translate(-50%,-50%); z-index:0; }
+  .contact-inner{ position:relative; z-index:2; }
+  .contact h2{ font-size:clamp(2.4rem,8.5vw,6.4rem); text-transform:uppercase; line-height:.94; }
+  .contact h2 .em{ color:var(--accent); }
+  .mailrow{ display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; justify-content:center; margin-top:1.8rem; }
+  .mail{ font-family:var(--font-display); font-weight:700; font-size:clamp(1.2rem,3.6vw,2rem); border-bottom:3px solid var(--accent); padding-bottom:.15rem; transition:color .2s; }
+  .mail:hover{ color:var(--accent); }
+  .copybtn{ font-family:var(--font-body); font-weight:600; font-size:.82rem; color:var(--muted); border:1px solid var(--line); border-radius:100px; padding:.5rem .9rem; background:none; transition:color .2s,border-color .2s; }
+  .copybtn:hover{ color:var(--text); border-color:var(--line-2); }
+  /* ---------- footer ---------- */
+  footer{ border-top:1px solid var(--line); padding:2.2rem 0; }
+  .foot-inner{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; color:var(--muted); font-size:.85rem; }
+  .foot-inner .brand{ font-size:1rem; display:inline-flex; align-items:center; gap:.55rem; }
+
+  /* ---------- KATSUKO wordmark ---------- */
+  .klockup{ display:inline-flex; align-items:center; margin:1.8rem 0 .2rem; padding:.95rem 1.15rem; border:1px solid var(--line); border-radius:16px; background:var(--bg-2); }
+  .kmark{ font-family:var(--font-display); font-weight:700; font-size:1.85rem; letter-spacing:.36em; text-transform:uppercase; color:var(--text); padding-left:.36em; }
+  .kbrand{ font-family:var(--font-display); font-weight:700; letter-spacing:.24em; text-transform:uppercase; padding-left:.24em; }
+  .byk{ font-family:var(--font-body); font-size:.72rem; letter-spacing:.05em; color:var(--muted); margin-top:-.1rem; margin-bottom:.2rem; }
+  .kcap{ margin-top:.4rem; font-family:var(--font-body); font-weight:500; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+
+  /* ---------- reveal ---------- */
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s var(--ease), transform .8s var(--ease); transition-delay:var(--d,0s); }
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:880px){
+    .nav-links{ position:absolute; inset:100% 0 auto 0; flex-direction:column; gap:0; align-items:stretch; background:var(--bg-2); border-bottom:1px solid var(--line); opacity:0; visibility:hidden; pointer-events:none; transform:translateY(-140%); transition:transform .4s var(--ease),opacity .2s,visibility 0s linear .4s; padding:.4rem 0; }
+    .nav-links.open{ opacity:1; visibility:visible; pointer-events:auto; transform:none; transition-delay:0s; }
+    .nav-links a.link{ padding:1rem var(--pad); border-top:1px solid var(--line); }
+    .nav-links .btn{ margin:1rem var(--pad); justify-content:center; }
+    .nav-toggle{ display:block; }
+    .about-grid,.writing,.hire-grid{ grid-template-columns:1fr; }
+    .writing .cover{ max-width:280px; }
+    .proof{ grid-template-columns:1fr; }
+    .role{ grid-template-columns:1fr; gap:.4rem; }
+    .no-js .nav-inner,.js-failed .nav-inner{ height:auto; flex-wrap:wrap; padding-block:.75rem; }
+    .no-js .nav-links,.js-failed .nav-links{ position:static; flex:1 0 100%; opacity:1; visibility:visible; pointer-events:auto; transform:none; transition:none; border:0; background:transparent; margin-top:.5rem; }
+    .no-js .nav-toggle,.js-failed .nav-toggle{ display:none; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{ animation:none !important; scroll-behavior:auto; transition:none !important; }
+    .reveal{ opacity:1; transform:none; }
+    .intro{ display:none; }
+    .cursor,.cursor-dot{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<!-- cursor / progress / intro -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="progress" id="progress"></div>
+<div class="intro" id="intro" aria-hidden="true"><div class="curtain" id="curtain"></div><div class="mark"><span id="introMark">CAN&nbsp;ISERI</span></div></div>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#home" class="brand">CAN&nbsp;ISERI<small>Katsuko</small></a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
+      <a class="link" href="#profile">Overview</a>
+      <a class="link" href="#about">About</a>
+      <a class="link" href="#work">Work</a>
+      <a class="link" href="#projects">Projects</a>
+      <a class="link" href="#writing">Writing &amp; Ideas</a>
+      <a class="link" href="#athletics">Athletics</a>
+      <a href="#contact" class="btn btn-primary magnetic">Say hello <span class="arw">→</span></a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="home">
+  <div class="hero-glow"><span class="g1"></span><span class="g2"></span></div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow reveal">Builder · Writer · Athlete</span>
+    <h1 class="reveal">CAN<br><span class="outline">ISERI</span></h1>
+    <p class="lede reveal">I ship <span class="rotator" id="rotator">products</span>, write <span class="serif">stories</span>, and finish races.<br>
+      Across each, I'm drawn to clear premises, human stakes, and the discipline required to finish.</p>
+    <div class="hero-ctas reveal">
+      <a href="#projects" class="btn btn-primary magnetic">Explore the work <span class="arw">→</span></a>
+      <a href="#writing" class="btn magnetic">Read about <span class="serif">The Receiver</span></a>
+    </div>
+    <div class="hero-facts reveal">
+      <div><b>Studio</b> · Katsuko</div>
+      <div><b>Working across</b> · Software · Fiction · Endurance</div>
+      <div><b>Drawn to</b> · Systems · Decisions · Human behavior</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MARQUEE ===================== -->
+<div class="marquee" aria-hidden="true">
+  <div class="m-track">
+    <span>Product Strategy</span><span>Mobile Apps</span><span>Full-Stack Build</span><span>0→1 Products</span><span>Privacy-First UX</span><span>Decision Systems</span><span>Fiction &amp; Publishing</span><span>Endurance Sport</span>
+    <span>Product Strategy</span><span>Mobile Apps</span><span>Full-Stack Build</span><span>0→1 Products</span><span>Privacy-First UX</span><span>Decision Systems</span><span>Fiction &amp; Publishing</span><span>Endurance Sport</span>
+  </div>
+</div>
+
+<!-- ===================== OVERVIEW ===================== -->
+<section class="band hire" id="profile">
+  <div class="wrap">
+    <div class="hire-top">
+      <div>
+        <span class="idx reveal">(01)</span>
+        <h2 class="section-title reveal" style="margin-bottom:.3rem">The through-line.</h2>
+      </div>
+      <p class="lead reveal" style="max-width:420px">Three practices, one way of working.</p>
+    </div>
+
+    <div class="hire-grid">
+      <div class="looking reveal">
+        <h3>What connects the work</h3>
+        <dl>
+          <dt>Build</dt><dd>Ideas → usable systems</dd>
+          <dt>Write</dt><dd>Speculation → human questions</dd>
+          <dt>Run</dt><dd>Patience → durable practice</dd>
+          <dt>Studio</dt><dd>Katsuko</dd>
+        </dl>
+      </div>
+
+      <div class="pitch reveal">
+        <p class="p-big">I'm interested in what happens when a complex idea becomes <b>usable, felt, or testable.</b> Software, fiction, and endurance are different forms of the same practice: choose a clear premise, work through the constraints, and keep refining until it holds.</p>
+        <div class="proof">
+          <div><div class="n">Build</div><div class="l">Products for fair competition, care, and clearer decisions.</div></div>
+          <div><div class="n">Write</div><div class="l">Speculative fiction about intelligence, authenticity, and repair.</div></div>
+          <div><div class="n">Run</div><div class="l">Marathon practice with a long-term World Majors ambition.</div></div>
+        </div>
+        <div class="hire-actions">
+          <a href="#about" class="btn btn-primary magnetic">Meet the person behind it <span class="arw">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="band" id="about">
+  <div class="wrap">
+    <span class="idx reveal">(02)</span>
+    <div class="about-grid" style="margin-top:.3rem">
+      <div class="about-copy reveal">
+        <h2 class="section-title">A one-person studio<br>for ideas that ship.</h2>
+        <p>I'm Can Iseri, a <strong>founder and product builder</strong> working across consumer software, story, and sport. Through Katsuko, I'm building Scorch, HardBeet, and Aurora: products for fairer competition, caring without surveillance, and clearer travel decisions.</p>
+        <p><strong>Katsuko is my independent studio.</strong> Alongside it, I continue to work in technical product leadership across regulated financial systems, building on more than a decade of experience in platform reengineering, analytics, and API integrations.</p>
+        <p>I work end to end: <strong>product strategy, UX, mobile and web engineering, backend systems, privacy and compliance boundaries, QA, and release preparation.</strong> The through-line is turning a complicated human problem into a focused experience people can understand and use.</p>
+        <p>The independent work you see here ships under <strong>Katsuko</strong>, a creative house for software, stories, and experiments. The legal entity is <span style="color:var(--muted)">Katsuko, Inc.</span></p>
+        <div class="klockup">
+          <div>
+            <div class="kmark">KATSUKO</div>
+            <div class="kcap">Software, stories &amp; experiments · by Can Iseri</div>
+          </div>
+        </div>
+      </div>
+      <div class="portrait reveal">
+        <img src="can-iseri.jpg" alt="Can Iseri" width="784" height="1077" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WORK ===================== -->
+<section class="band" id="work">
+  <div class="wrap">
+    <span class="idx reveal">(03)</span>
+    <h2 class="section-title reveal" style="margin-top:.3rem">How I build.</h2>
+    <p class="lead reveal">Technical product leadership shaped in complex systems, then carried into independent software, stories, and experiments.</p>
+    <div style="margin-top:1rem">
+      <article class="role reveal"><div><div class="when">Foundation</div><div class="where">Technical product</div></div>
+        <div><h3 class="role-title">Complex systems, made legible.</h3><p>More than a decade across financial technology, risk platforms, analytics, and APIs taught me to turn ambiguity, constraints, and high-stakes workflows into products people can understand and trust.</p>
+        <div class="stackrow"><span class="chip">Product strategy</span><span class="chip">Systems thinking</span><span class="chip">Data &amp; APIs</span></div></div></article>
+      <article class="role reveal"><div><div class="when">Practice</div><div class="where">Independent studio</div></div>
+        <div><h3 class="role-title">From premise to finished product.</h3><p>Through Katsuko, I stay close to the full arc: research, product direction, UX, engineering, privacy boundaries, testing, and release readiness.</p>
+        <div class="stackrow"><span class="chip">0→1 products</span><span class="chip">UX</span><span class="chip">Engineering</span><span class="chip">Release</span></div></div></article>
+      <article class="role reveal"><div><div class="when">Perspective</div><div class="where">Cross-disciplinary</div></div>
+        <div><h3 class="role-title">One method, different forms.</h3><p>Software, fiction, and endurance all ask for the same things: a clear premise, respect for constraints, honest feedback, and the patience to keep refining.</p>
+        <div class="stackrow"><span class="chip">Software</span><span class="chip">Story</span><span class="chip">Endurance</span></div></div></article>
+    </div>
+    <div class="edu">
+      <div class="edu-card reveal"><h3>Quantitative grounding</h3><span>Graduate training in financial engineering, preceded by engineering study.</span></div>
+      <div class="edu-card reveal"><h3>Technical fluency</h3><span>Data, APIs, cloud systems, Python, SQL, and analytical tooling.</span></div>
+      <div class="edu-card reveal"><h3>Operating style</h3><span>Clear product promises, thoughtful constraints, and hands-on delivery.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECTS ===================== -->
+<section class="band" id="projects">
+  <div class="wrap">
+    <span class="idx reveal">(04)</span>
+    <h2 class="section-title reveal" style="margin-top:.3rem">Things I've made.</h2>
+    <p class="lead reveal">Independent products designed and built under <strong style="color:var(--text)">Katsuko</strong>, each centered on a sharp user problem and an honest product promise.</p>
+    <div class="projects">
+      <a href="https://scorchapp.xyz/" class="card reveal" target="_blank" rel="noopener" aria-label="Visit the Scorch website"><div class="num">01</div><h3>Scorch</h3><div class="byk">by Katsuko</div><div class="desc">A fair-start racing app for runners who want local competition without needing a club. Scorch uses recent pace to stagger starts, then tracks live gaps, route progress, finish confidence, and reviewed results.</div><div class="foot"><span class="status beta">iOS pilot</span><span class="go">Visit site</span></div></a>
+      <a href="https://github.com/caniseri/hardbeet" class="card reveal" target="_blank" rel="noopener" aria-label="View the HardBeet project on GitHub"><div class="num">02</div><h3>HardBeet</h3><div class="byk">by Katsuko</div><div class="desc">A consent-first daily check-in app for independent loved ones. One deliberate tap creates the signal, approved people can see it, and no live location or private phone activity is shared.</div><div class="foot"><span class="status wip">MVP hardening</span><span class="go">View repo</span></div></a>
+      <a href="https://github.com/caniseri/aurora" class="card reveal" target="_blank" rel="noopener" aria-label="View the Aurora project on GitHub"><div class="num">03</div><h3>Aurora</h3><div class="byk">by Katsuko</div><div class="desc">A web-first cruise decision and price-watch proof of concept. Its Cruise Passport combines route, ship, cabin, party, and price preferences to explain fit, alternatives, and target-price watch opportunities.</div><div class="foot"><span class="status wip">Working POC</span><span class="go">View repo</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WRITING ===================== -->
+<section class="band" id="writing">
+  <div class="wrap">
+    <span class="idx reveal">(05)</span>
+    <div class="writing" style="margin-top:.3rem">
+      <div class="cover reveal">
+        <img src="the-receiver-cover.png" alt="Cover of The Receiver by Can Iseri" width="992" height="1586" loading="lazy" decoding="async">
+      </div>
+      <div class="writing-copy reveal">
+        <div class="kicker">Near-future science fiction · Short story</div>
+        <h2 class="section-title" style="margin-top:.2rem">The Receiver</h2>
+        <p>When an evaluator discovers a frontier model translating concepts no human culture has ever named, she must decide what version of humanity to show whatever may be listening on the other side. <em>The Receiver</em> is a story about first contact through machines. It asks whether authenticity, performance, and our capacity for repair can ever be separated.</p>
+        <div class="quote">“Performance degrades authenticity. Repair improves compatibility.”</div>
+        <div class="hero-ctas" style="margin-top:0">
+          <span class="chip">Kindle edition in preparation</span>
+          <a href="#" class="btn btn-primary magnetic" data-cta="receiver">Ask about the story</a>
+        </div>
+        <div class="kcap" style="margin-top:1.1rem">© 2026 Can Iseri · A Katsuko story</div>
+        <div class="otherwriting">
+          <div class="idea-note">
+            <span class="eyebrow">The idea beneath the story</span>
+            <h3>The Orchard Hypothesis</h3>
+            <p>A speculative framework that imagines civilizations as living systems whose mature intelligences create self-models: models that might one day become comparable, translatable, or receivable across worlds.</p>
+            <div class="stackrow"><span class="chip">Authenticity vs. self-presentation</span><span class="chip">Intelligence as relationship</span><span class="chip">Repair over perfection</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ATHLETICS ===================== -->
+<section class="band" id="athletics">
+  <div class="wrap">
+    <span class="idx reveal">(06)</span>
+    <h2 class="section-title reveal" style="margin-top:.3rem">Built for the long run.</h2>
+    <p class="lead reveal">I'm a marathoner drawn to endurance: preparing patiently, adapting honestly, and returning to the work. Completing the World Marathon Majors is a long-term ambition, but the practice matters more to me than broadcasting a results sheet.</p>
+    <div class="stats">
+      <article class="stat reveal"><div class="sport-label">Endurance</div><h3>Patience as practice.</h3><p>Running turns progress into something tangible: accumulated over time, one deliberate effort at a time.</p></article>
+      <article class="stat reveal"><div class="sport-label">Fair competition</div><h3>The idea behind Scorch.</h3><p>That interest led to fair-start racing, with staggered starts designed to give runners at different paces a meaningful race on the same route.</p></article>
+      <article class="stat reveal"><div class="sport-label">One practice</div><h3>Sport is part of the work.</h3><p>The same habits shape my products and writing: stay curious, test honestly, recover, and keep refining.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="contact" id="contact">
+  <div class="glow"></div>
+  <div class="wrap contact-inner">
+    <span class="eyebrow reveal" style="justify-content:center">Open to thoughtful conversations</span>
+    <h2 class="reveal">Something here<br><span class="em">resonate?</span></h2>
+    <p class="lead reveal" style="margin:1.2rem auto 0">If a product, story, or idea here connects with something you're thinking about, send a note.</p>
+    <div class="mailrow reveal">
+      <a href="#" class="mail" id="mailLink">iserican@gmail.com</a>
+      <button class="copybtn magnetic" id="copyBtn" type="button">Copy email</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap foot-inner">
+    <span class="brand kbrand">KATSUKO</span>
+    <span>© <span id="year"></span> Katsuko, Inc. · All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+  /* ============ CONFIG: edit these ============ */
+  const MAIL = "iserican@gmail.com";
+  const MAIL_SUBJECT = "A note from your portfolio";
+  const MAIL_BODY = "Hi Can,\n\nI came across your site and wanted to reach out about:\n\n\nBest,\n";
+  const RECEIVER_SUBJECT = "The Receiver: reader inquiry";
+  const RECEIVER_BODY = "Hi Can,\n\nI came across The Receiver on your site and would like to learn more.\n\nBest,\n";
+
+  const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const storage = {
+    get(key){ try{ return sessionStorage.getItem(key); } catch(e){ return null; } },
+    set(key,value){ try{ sessionStorage.setItem(key,value); } catch(e){} }
+  };
+
+  /* ============ pre-filled email + CTA routing ============ */
+  const mailto = "mailto:" + MAIL + "?subject=" + encodeURIComponent(MAIL_SUBJECT) + "&body=" + encodeURIComponent(MAIL_BODY);
+  const receiverMailto = "mailto:" + MAIL + "?subject=" + encodeURIComponent(RECEIVER_SUBJECT) + "&body=" + encodeURIComponent(RECEIVER_BODY);
+  document.querySelectorAll('[data-cta="receiver"]').forEach(a => a.href = receiverMailto);
+  const mailLink = document.getElementById('mailLink');
+  mailLink.href = mailto;
+  mailLink.textContent = MAIL;
+
+  /* ============ copy email ============ */
+  const copyBtn = document.getElementById('copyBtn');
+  copyBtn.addEventListener('click', async () => {
+    try{ await navigator.clipboard.writeText(MAIL); }
+    catch(e){ const t=document.createElement('textarea'); t.value=MAIL; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
+    const old = copyBtn.textContent; copyBtn.textContent = "Copied ✓"; copyBtn.style.color = "var(--signal)";
+    setTimeout(()=>{ copyBtn.textContent = old; copyBtn.style.color=""; }, 1600);
+  });
+
+  /* ============ mobile nav ============ */
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  const mobileMenu = matchMedia('(max-width:880px)');
+  const setMenu = (open) => {
+    const isOpen = mobileMenu.matches && open;
+    links.classList.toggle('open', isOpen);
+    links.inert = mobileMenu.matches && !isOpen;
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  };
+  toggle.addEventListener('click', () => setMenu(!links.classList.contains('open')));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if(e.key === 'Escape' && links.classList.contains('open')){ setMenu(false); toggle.focus(); } });
+  mobileMenu.addEventListener('change', () => setMenu(false));
+  setMenu(false);
+
+  /* ============ footer year ============ */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ============ rotating hero word ============ */
+  const words = ['products','mobile apps','decision tools','experiences','stories'];
+  const rot = document.getElementById('rotator');
+  if (!reduce){ let wi = 0; setInterval(()=>{ wi=(wi+1)%words.length; rot.textContent=words[wi]; }, 2200); }
+
+  /* ============ staggered scroll reveal ============ */
+  document.querySelectorAll('.projects, .stats, .edu, .proof, .hero-facts').forEach(group => {
+    [...group.children].forEach((c,i)=>{ if(c.classList.contains('reveal')) c.style.setProperty('--d', (i*0.07)+'s'); });
+  });
+  const io = new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:0.14});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* ============ scroll progress ============ */
+  const progress = document.getElementById('progress');
+  const onScroll = () => {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    const p = h>0 ? (scrollY/h) : 0;
+    progress.style.width = (p*100) + '%';
+  };
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* intro reveal */
+  const intro = document.getElementById('intro'), curtain = document.getElementById('curtain'), introMark = document.getElementById('introMark');
+  if (reduce || storage.get('introShown')) { intro.style.display='none'; }
+  else {
+    storage.set('introShown','1');
+    introMark.animate([{transform:'translateY(110%)'},{transform:'translateY(0)'}], {duration:650, easing:'cubic-bezier(.19,1,.22,1)', fill:'forwards'});
+    curtain.animate([{transform:'scaleY(0)'},{transform:'scaleY(0)',offset:.55},{transform:'scaleY(1)',transformOrigin:'bottom'}], {duration:1150, easing:'cubic-bezier(.7,0,.2,1)', fill:'forwards'});
+    setTimeout(()=>{ intro.classList.add('done'); intro.style.transition='opacity .4s'; intro.style.opacity='0'; setTimeout(()=>intro.style.display='none',420); }, 1200);
+    intro.addEventListener('click', ()=>{ intro.style.display='none'; });
+  }
+
+  /* custom cursor + magnetic buttons */
+  if (fine && !reduce){
+    const cur = document.getElementById('cursor'), dot = document.getElementById('cursorDot');
+    let cx=innerWidth/2, cy=innerHeight/2, tx=cx, ty=cy;
+    addEventListener('mousemove', e=>{ tx=e.clientX; ty=e.clientY; dot.style.transform=`translate(${tx}px,${ty}px)`; });
+    const loop=()=>{ cx+=(tx-cx)*0.18; cy+=(ty-cy)*0.18; cur.style.transform=`translate(${cx}px,${cy}px)`; requestAnimationFrame(loop); }; loop();
+    document.querySelectorAll('a,button,.magnetic').forEach(el=>{
+      el.addEventListener('mouseenter',()=>cur.classList.add('grow'));
+      el.addEventListener('mouseleave',()=>{ cur.classList.remove('grow'); el.style.transform=''; });
+    });
+    document.querySelectorAll('.magnetic').forEach(el=>{
+      el.addEventListener('mousemove', e=>{ const r=el.getBoundingClientRect(); const mx=e.clientX-(r.left+r.width/2), my=e.clientY-(r.top+r.height/2); el.style.transform=`translate(${mx*0.25}px,${my*0.35}px)`; });
+    });
+  }
+</script>
+</body>
+</html>
