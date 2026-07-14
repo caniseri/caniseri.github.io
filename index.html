@@ -167,9 +167,12 @@
   .rotator-shell{ display:inline-flex; align-items:center; min-inline-size:24ch; }
   .rotator-word{ display:inline-block; transition:opacity .2s ease,transform .2s ease; }
   .rotator-word.changing{ opacity:0; transform:translateY(.2em); }
+  .rotator-caret{ width:.1em; height:.9em; flex:none; margin-left:.12em; border-radius:2px; background:var(--signal); box-shadow:0 0 14px rgba(182,240,60,.28); animation:rotatorBlink 1.05s steps(1,end) infinite; }
+  .rotator-control[aria-pressed="true"] .rotator-caret{ animation-play-state:paused; opacity:.55; }
   .rotator-state{ color:var(--muted); font-size:.48em; line-height:1; opacity:.72; transition:opacity .2s,color .2s; }
   .rotator-control:hover .rotator-state{ color:var(--text); opacity:1; }
   .no-js .rotator-state,.js-failed .rotator-state{ display:none; }
+  @keyframes rotatorBlink{ 0%,46%{ opacity:1; } 47%,100%{ opacity:.12; } }
   .hero .lede{ max-width:790px; margin-top:1.55rem; font-size:clamp(1.16rem,2.45vw,1.72rem); line-height:1.46; }
   .hero .lede strong{ color:var(--accent); font-family:var(--font-display); font-weight:700; }
   .hero-ctas{ display:flex; flex-wrap:wrap; gap:.9rem; align-items:center; margin-top:2.2rem; }
@@ -359,7 +362,7 @@
       <p class="hero-promise reveal">
         <span>I turn complexity into</span>
         <button class="rotator-control" id="rotatorToggle" type="button" aria-label="Pause rotating statement" aria-pressed="false" disabled>
-          <span class="rotator-shell" aria-hidden="true"><span class="rotator-word" id="heroRotator">products people trust.</span></span>
+          <span class="rotator-shell" aria-hidden="true"><span class="rotator-word" id="heroRotator">products people trust.</span><span class="rotator-caret"></span></span>
           <span class="rotator-state" aria-hidden="true">Ⅱ</span>
         </button>
         <span class="sr-only">products people trust, systems made clear, decisions people can use, and stories worth carrying.</span>
