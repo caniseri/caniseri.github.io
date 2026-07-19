@@ -3,619 +3,729 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Can Iseri | Builder · Writer · Athlete</title>
-<meta name="description" content="Can Iseri is a technical product builder, writer, and marathoner. Explore Katsuko projects Scorch, HardBeet, and Aurora, plus The Receiver and the ideas behind the work." />
+<title>Can Iseri | Technical Product Leader, Founder &amp; Writer</title>
+<meta name="description" content="Can Iseri is a technical product leader, founder of Katsuko, writer, and marathoner. Explore Scorch, HardBeet, Aurora, and The Receiver." />
+<meta name="theme-color" content="#09090C" />
+<link rel="canonical" href="https://caniseri.com/" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="favicon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://caniseri.com/" />
+<meta property="og:site_name" content="Can Iseri" />
+<meta property="og:title" content="Can Iseri | Technical Product Leader, Founder &amp; Writer" />
+<meta property="og:description" content="Complex systems made clear. Consumer products through Katsuko, speculative fiction, and endurance practice." />
+<meta property="og:image" content="https://caniseri.com/og-card.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Can Iseri, technical product leader, founder, writer, and marathoner" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Can Iseri | Technical Product Leader, Founder &amp; Writer" />
+<meta name="twitter:description" content="Complex systems made clear. Consumer products through Katsuko, speculative fiction, and endurance practice." />
+<meta name="twitter:image" content="https://caniseri.com/og-card.jpg" />
+<meta name="twitter:image:alt" content="Can Iseri, technical product leader, founder, writer, and marathoner" />
 <script>
   document.documentElement.classList.replace('no-js', 'js');
-  addEventListener('error', () => {
+  addEventListener('error', function () {
     document.documentElement.classList.add('js-failed');
-    document.querySelectorAll('[inert]').forEach(el => { el.inert = false; });
+    document.querySelectorAll('[inert]').forEach(function (el) { el.inert = false; });
   });
 </script>
-
-<!--
-  ============================================================================
-  CAN ISERI: STATEMENT PORTFOLIO  (v3 · curated public profile)
-  ============================================================================
-  HOW TO CUSTOMIZE:
-    • Email ....... your address is set once in the  MAIL  const (script).
-    • Colors/font . change the CSS variables in the  :root { }  block.
-  No build step. Google Fonts use local fallbacks when offline. Open in a
-  browser, or drop the folder on Netlify / Vercel / GitHub Pages to publish.
-  ============================================================================
--->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://caniseri.com/#person",
+      "name": "Can Iseri",
+      "url": "https://caniseri.com/",
+      "image": "https://caniseri.com/can-iseri.jpg",
+      "jobTitle": "Technical Product Leader",
+      "description": "Technical product leader, founder of Katsuko, writer, and marathoner.",
+      "knowsAbout": [
+        "Technical product leadership",
+        "Regulated financial systems",
+        "Consumer software",
+        "Privacy-first product design",
+        "Speculative fiction",
+        "Endurance sport"
+      ]
+    },
+    {
+      "@type": "Book",
+      "name": "The Receiver",
+      "url": "https://www.amazon.com/dp/B0H8RGDN71",
+      "image": "https://caniseri.com/the-receiver-cover.png",
+      "author": { "@id": "https://caniseri.com/#person" },
+      "publisher": { "@type": "Organization", "name": "Katsuko, Inc." },
+      "datePublished": "2026-07-14",
+      "bookFormat": "https://schema.org/EBook",
+      "numberOfPages": 38,
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400;1,9..144,500&amp;display=swap" rel="stylesheet" />
 
 <style>
-  /* ===================== DESIGN TOKENS ===================== */
   :root{
-    --bg:        #09090C;
-    --bg-2:      #0F0F16;
-    --surface:   #14141F;
-    --text:      #F4F1EA;
-    --muted:     #9794A6;
-    --line:      rgba(244,241,234,.11);
-    --line-2:    rgba(244,241,234,.18);
-
-    --accent:    #FF4D2E;   /* vermilion, the statement */
-    --signal:    #B6F03C;   /* lime, small signals and motion accents */
-    --halo:      #6C4BFF;   /* violet, background glow only */
-
-    --maxw: 1180px;
-    --pad: clamp(20px, 5vw, 68px);
-    --radius: 20px;
-
-    --font-display: "Space Grotesk", system-ui, sans-serif;
-    --font-body: "Inter", system-ui, sans-serif;
-    --font-serif: "Fraunces", Georgia, serif;
-
-    --ease: cubic-bezier(.19,1,.22,1);
+    --bg:#09090C;
+    --bg-2:#0F0F16;
+    --surface:#14141F;
+    --surface-2:#191925;
+    --text:#F4F1EA;
+    --muted:#A4A1B2;
+    --line:rgba(244,241,234,.11);
+    --line-2:rgba(244,241,234,.2);
+    --accent:#FF4D2E;
+    --signal:#B6F03C;
+    --halo:#6C4BFF;
+    --maxw:1180px;
+    --pad:clamp(20px,5vw,68px);
+    --radius:20px;
+    --font-display:"Space Grotesk",system-ui,sans-serif;
+    --font-body:"Inter",system-ui,sans-serif;
+    --font-serif:"Fraunces",Georgia,serif;
+    --ease:cubic-bezier(.19,1,.22,1);
   }
 
   *{ box-sizing:border-box; margin:0; padding:0; }
-  html{ scroll-behavior:smooth; scroll-padding-top:90px; -webkit-text-size-adjust:100%; }
+  html{ scroll-behavior:smooth; scroll-padding-top:88px; -webkit-text-size-adjust:100%; }
   body{
-    background:var(--bg); color:var(--text);
-    font-family:var(--font-body); line-height:1.6; overflow-x:hidden;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    overflow-x:hidden;
     -webkit-font-smoothing:antialiased;
   }
-  body::before{ /* grain */
-    content:""; position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.045;
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    opacity:.04;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   a{ color:inherit; text-decoration:none; }
-  img{ max-width:100%; display:block; }
-  ::selection{ background:var(--accent); color:#09090C; }
+  img{ display:block; max-width:100%; }
+  button{ font:inherit; }
+  ::selection{ background:var(--accent); color:var(--bg); }
+  :focus-visible{ outline:3px solid var(--signal); outline-offset:4px; }
 
+  .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
   .skip-link{ position:fixed; top:10px; left:10px; z-index:10000; padding:.65rem 1rem; border-radius:100px; background:var(--text); color:var(--bg); font-family:var(--font-display); font-weight:700; transform:translateY(-160%); transition:transform .2s; }
   .skip-link:focus{ transform:none; }
-
   .wrap{ width:100%; max-width:var(--maxw); margin:0 auto; padding-inline:var(--pad); }
   section{ position:relative; z-index:2; }
+  .progress{ position:fixed; top:0; left:0; z-index:9998; height:3px; width:0; background:linear-gradient(90deg,var(--accent),var(--signal)); }
 
-  /* ---------- custom cursor (desktop, fine-pointer only) ---------- */
-  .cursor,.cursor-dot{ position:fixed; top:0; left:0; z-index:9999; pointer-events:none; border-radius:50%; mix-blend-mode:difference; background:#fff; translate:-50% -50%; }
-  .cursor{ width:34px; height:34px; border:1px solid #fff; background:transparent; transition:width .25s var(--ease), height .25s var(--ease), background .25s; }
-  .cursor.grow{ width:66px; height:66px; background:#fff; }
-  .cursor-dot{ width:6px; height:6px; }
-  @media (hover:hover) and (pointer:fine){ .js body{ cursor:none; } .js a,.js button,.js .magnetic{ cursor:none; } }
-  @media (hover:none),(pointer:coarse){ .cursor,.cursor-dot{ display:none; } }
-
-  .no-js .cursor,.no-js .cursor-dot,.no-js .intro,
-  .js-failed .cursor,.js-failed .cursor-dot,.js-failed .intro{ display:none; }
-  .no-js .reveal,.js-failed .reveal{ opacity:1; transform:none; }
-  @media (hover:hover) and (pointer:fine){ .js-failed body,.js-failed a,.js-failed button,.js-failed .magnetic{ cursor:auto; } }
-
-  /* ---------- scroll progress ---------- */
-  .progress{ position:fixed; top:0; left:0; height:3px; width:0; background:linear-gradient(90deg,var(--accent),var(--signal)); z-index:9998; }
-
-  /* ---------- intro reveal ---------- */
-  .intro{ position:fixed; inset:0; z-index:9990; background:var(--bg); display:grid; place-items:center; overflow:hidden; }
-  .intro.done{ pointer-events:none; }
-  .intro .curtain{ position:absolute; inset:0; background:var(--accent); transform-origin:top; }
-  .intro .mark{ position:relative; font-family:var(--font-display); font-weight:700; letter-spacing:-.02em; text-transform:uppercase; font-size:clamp(2.2rem,9vw,6rem); color:var(--text); overflow:hidden; }
-  .intro .mark span{ display:inline-block; transform:translateY(110%); }
-
-  h1,h2,h3{ font-family:var(--font-display); font-weight:700; line-height:1.0; letter-spacing:-.025em; }
-  /* Anton on the major headlines only (per request). Everything else keeps Space Grotesk. */
-  /* To scope Anton differently, add/remove selectors below. */
-  .section-title,          /* all section titles */
-  .contact h2{             /* the closing "Hire the person who ships." */
-    font-family:"Anton", var(--font-display); font-weight:400; letter-spacing:.02em;
-  }
-  .section-title{ font-size:clamp(2rem,5.4vw,3.6rem); margin:.5rem 0 1.4rem; }
-  .idx{ font-family:var(--font-display); font-weight:700; color:var(--accent); font-size:.85rem; letter-spacing:.05em; }
-  .eyebrow{ font-family:var(--font-display); font-size:.78rem; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--muted); display:inline-flex; align-items:center; gap:.6rem; }
+  h1,h2,h3{ font-family:var(--font-display); font-weight:700; line-height:1.02; letter-spacing:-.025em; }
+  .section-title,.contact h2{ font-family:"Anton",var(--font-display); font-weight:400; letter-spacing:.02em; }
+  .section-title{ font-size:clamp(2.2rem,5.4vw,4rem); margin:.45rem 0 1.1rem; }
+  .idx{ font-family:var(--font-display); font-weight:700; color:var(--accent); font-size:.84rem; letter-spacing:.06em; }
+  .eyebrow{ font-family:var(--font-display); font-size:.76rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:inline-flex; align-items:center; gap:.6rem; }
   .eyebrow::before{ content:""; width:26px; height:2px; background:var(--accent); }
   .serif{ font-family:var(--font-serif); font-style:italic; }
+  .lead{ max-width:760px; color:var(--muted); font-size:clamp(1.04rem,2vw,1.28rem); }
+  .band{ padding:clamp(68px,9vw,116px) 0; }
+  .band + .band{ border-top:1px solid var(--line); }
+  .section-head{ display:flex; align-items:end; justify-content:space-between; gap:2rem; margin-bottom:2rem; }
+  .section-head .lead{ max-width:520px; }
 
-  /* ---------- links with drawn underline ---------- */
-  .ul{ position:relative; }
-  .ul::after{ content:""; position:absolute; left:0; bottom:-2px; height:1.5px; width:100%; background:currentColor; transform:scaleX(0); transform-origin:right; transition:transform .4s var(--ease); }
-  .ul:hover::after{ transform:scaleX(1); transform-origin:left; }
-
-  /* ---------- buttons ---------- */
-  .btn{ font-family:var(--font-display); font-weight:700; font-size:.92rem; padding:.85rem 1.5rem; border-radius:100px; border:1.5px solid var(--line-2); background:transparent; color:var(--text); display:inline-flex; align-items:center; gap:.55rem; transition:transform .2s var(--ease), background .25s, color .25s, border-color .25s; }
+  .btn{ font-family:var(--font-display); font-weight:700; font-size:.92rem; padding:.86rem 1.5rem; border-radius:100px; border:1.5px solid var(--line-2); background:transparent; color:var(--text); display:inline-flex; align-items:center; justify-content:center; gap:.55rem; transition:transform .2s var(--ease),background .25s,color .25s,border-color .25s; }
   .btn:hover{ transform:translateY(-2px); border-color:var(--text); }
-  .btn-primary{ background:var(--accent); border-color:var(--accent); color:#09090C; }
+  .btn-primary{ background:var(--accent); border-color:var(--accent); color:var(--bg); }
   .btn-primary:hover{ background:#fff; border-color:#fff; }
   .btn .arw{ transition:transform .25s var(--ease); }
   .btn:hover .arw{ transform:translateX(4px); }
-  .magnetic{ display:inline-flex; }
 
-  /* ---------- nav ---------- */
-  header.nav{ position:sticky; top:0; z-index:45; backdrop-filter:blur(14px); background:color-mix(in srgb,var(--bg) 74%, transparent); border-bottom:1px solid var(--line); }
+  header.nav{ position:sticky; top:0; z-index:45; backdrop-filter:blur(14px); background:color-mix(in srgb,var(--bg) 78%,transparent); border-bottom:1px solid var(--line); }
   .nav-inner{ display:flex; align-items:center; justify-content:space-between; height:70px; }
-  .brand{ font-family:var(--font-display); font-weight:700; font-size:1.12rem; display:flex; align-items:center; gap:.7rem; }
-  .brand small{ font-family:var(--font-body); font-weight:500; font-size:.72rem; color:var(--muted); letter-spacing:.04em; }
-  .nav-links{ display:flex; align-items:center; gap:1.9rem; }
-  .nav-links a.link{ font-size:.9rem; color:var(--muted); font-weight:500; transition:color .2s; }
+  .brand{ font-family:var(--font-display); font-weight:700; font-size:1.12rem; letter-spacing:-.02em; }
+  .nav-links{ display:flex; align-items:center; gap:1.55rem; }
+  .nav-links a.link{ font-size:.88rem; color:var(--muted); font-weight:500; transition:color .2s; }
   .nav-links a.link:hover{ color:var(--text); }
-  .nav-toggle{ display:none; background:none; border:0; color:var(--text); font-size:1.5rem; }
+  .nav-toggle{ display:none; width:44px; height:44px; place-items:center; background:none; border:1px solid var(--line); border-radius:50%; color:var(--text); font-size:1.35rem; }
 
-  /* ---------- hero ---------- */
-  .hero{ padding:clamp(46px,8vw,110px) 0 clamp(36px,5vw,72px); position:relative; }
+  .hero{ padding:clamp(52px,8vw,112px) 0 clamp(42px,6vw,78px); overflow:hidden; }
   .hero-glow{ position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
   .hero-glow span{ position:absolute; border-radius:50%; filter:blur(100px); }
-  .hero-glow .g1{ width:460px; height:460px; background:var(--accent); top:-140px; right:-70px; opacity:.24; }
-  .hero-glow .g2{ width:400px; height:400px; background:var(--halo); bottom:-160px; left:-80px; opacity:.26; }
+  .hero-glow .g1{ width:460px; height:460px; background:var(--accent); top:-150px; right:-70px; opacity:.23; }
+  .hero-glow .g2{ width:420px; height:420px; background:var(--halo); bottom:-180px; left:-100px; opacity:.24; }
   .hero-inner{ position:relative; z-index:2; }
-  .hero h1{ font-size:clamp(3.4rem,14vw,11rem); line-height:.88; text-transform:uppercase; margin:1rem 0 .3rem; }
+  .hero h1{ font-size:clamp(3.6rem,14vw,10.5rem); line-height:.87; text-transform:uppercase; margin:1.05rem 0 .5rem; }
   .hero h1 .outline{ -webkit-text-stroke:1.6px var(--text); color:transparent; }
-  .hero .lede{ font-size:clamp(1.15rem,2.5vw,1.65rem); max-width:660px; margin-top:1.5rem; font-weight:400; line-height:1.45; }
-  .hero .lede .serif{ color:var(--accent); }
-  .rotator{ color:var(--accent); font-weight:600; }
-  .rotator::after{ content:"▍"; color:var(--signal); font-weight:400; margin-left:1px; animation:blink 1s steps(1) infinite; }
-  @keyframes blink{ 50%{ opacity:0 } }
-  .hero-ctas{ display:flex; flex-wrap:wrap; gap:.9rem; align-items:center; margin-top:2.3rem; }
-  .hero-ctas .small{ font-size:.9rem; color:var(--muted); }
-  .hero-facts{ display:flex; flex-wrap:wrap; gap:1.4rem 2.6rem; margin-top:2.8rem; color:var(--muted); font-size:.9rem; }
-  .hero-facts b{ color:var(--text); font-family:var(--font-display); font-weight:700; }
+  .hero-promise{ display:flex; align-items:center; flex-wrap:wrap; column-gap:.3em; row-gap:.12em; margin-top:1.55rem; font-family:var(--font-display); font-size:clamp(1.42rem,3.1vw,2.25rem); font-weight:600; line-height:1.25; letter-spacing:-.025em; }
+  .rotator-control{ display:inline-flex; align-items:center; gap:.42rem; min-inline-size:27ch; max-width:100%; padding:0; border:0; background:transparent; color:var(--accent); font:inherit; font-weight:inherit; letter-spacing:inherit; text-align:left; white-space:nowrap; cursor:pointer; }
+  .rotator-control:disabled{ opacity:1; cursor:default; }
+  .rotator-shell{ display:inline-flex; align-items:center; min-inline-size:24ch; }
+  .rotator-word{ display:inline-block; transition:opacity .2s ease,transform .2s ease; }
+  .rotator-word.changing{ opacity:0; transform:translateY(.2em); }
+  .rotator-caret{ width:.1em; height:.9em; flex:none; margin-left:.12em; border-radius:2px; background:var(--signal); box-shadow:0 0 14px rgba(182,240,60,.28); animation:rotatorBlink 1.05s steps(1,end) infinite; }
+  .rotator-control[aria-pressed="true"] .rotator-caret{ animation-play-state:paused; opacity:.55; }
+  .rotator-state{ color:var(--muted); font-size:.48em; line-height:1; opacity:.72; transition:opacity .2s,color .2s; }
+  .rotator-control:hover .rotator-state{ color:var(--text); opacity:1; }
+  .no-js .rotator-state,.js-failed .rotator-state{ display:none; }
+  @keyframes rotatorBlink{ 0%,46%{ opacity:1; } 47%,100%{ opacity:.12; } }
+  .hero .lede{ max-width:790px; margin-top:1.55rem; font-size:clamp(1.16rem,2.45vw,1.72rem); line-height:1.46; }
+  .hero .lede strong{ color:var(--accent); font-family:var(--font-display); font-weight:700; }
+  .hero-ctas{ display:flex; flex-wrap:wrap; gap:.9rem; align-items:center; margin-top:2.2rem; }
 
-  /* ---------- marquee ---------- */
-  .marquee{ border-block:1px solid var(--line); background:var(--bg-2); overflow:hidden; padding:.85rem 0; }
-  .m-track{ display:flex; gap:2.4rem; white-space:nowrap; width:max-content; animation:scroll 30s linear infinite; }
-  .marquee:hover .m-track{ animation-play-state:paused; }
-  .m-track span{ font-family:var(--font-display); font-weight:700; font-size:1.3rem; text-transform:uppercase; color:var(--text); display:inline-flex; align-items:center; gap:2.4rem; }
-  .m-track span::after{ content:"✦"; color:var(--accent); font-size:.85rem; }
-  @keyframes scroll{ to{ transform:translateX(-50%) } }
+  .proof-rail{ z-index:3; border-block:1px solid var(--line); background:var(--bg-2); }
+  .proof-grid{ display:grid; grid-template-columns:repeat(3,1fr); }
+  .proof-item{ padding:1.45rem clamp(1rem,2vw,1.8rem); border-left:1px solid var(--line); }
+  .proof-item:first-child{ border-left:0; }
+  .proof-item .n{ font-family:var(--font-display); font-size:clamp(1.2rem,2.2vw,1.65rem); font-weight:700; color:var(--text); }
+  .proof-item .l{ margin-top:.2rem; color:var(--muted); font-size:.84rem; }
 
-  /* ---------- generic band ---------- */
-  .band{ padding:clamp(64px,9vw,116px) 0; }
-  .band + .band{ border-top:1px solid var(--line); }
-  .lead{ font-size:clamp(1.05rem,2vw,1.28rem); color:var(--muted); max-width:720px; }
+  .status{ display:inline-flex; align-items:center; width:max-content; font-size:.75rem; line-height:1.35; font-family:var(--font-display); font-weight:700; letter-spacing:.07em; text-transform:uppercase; padding:.3rem .65rem; border-radius:100px; }
+  .status.live{ background:color-mix(in srgb,var(--signal) 18%,transparent); color:var(--signal); }
+  .status.beta{ background:color-mix(in srgb,var(--accent) 22%,transparent); color:#ff7b64; }
+  .status.wip{ background:color-mix(in srgb,var(--halo) 30%,transparent); color:#c2b5ff; }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:.5rem; }
+  .chip{ font-size:.78rem; line-height:1.35; color:var(--muted); border:1px solid var(--line); padding:.32rem .72rem; border-radius:100px; }
 
-  /* ---------- overview ---------- */
-  .hire{ background:linear-gradient(180deg,var(--bg-2),transparent 70%); }
-  .hire-top{ display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:1rem; }
-  .hire-grid{ display:grid; grid-template-columns:1fr 1.2fr; gap:clamp(1.4rem,4vw,3rem); margin-top:2rem; }
-  .looking{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1.7rem; }
-  .looking h3{ font-size:1.15rem; margin-bottom:1.1rem; }
-  .looking dl{ display:grid; grid-template-columns:auto 1fr; gap:.75rem 1.2rem; }
-  .looking dt{ color:var(--muted); font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; padding-top:.15rem; }
-  .looking dd{ font-family:var(--font-display); font-weight:700; font-size:1rem; }
-  .pitch{ display:flex; flex-direction:column; gap:1rem; }
-  .pitch .p-big{ font-family:var(--font-body); font-style:normal; font-weight:500; font-size:clamp(1.25rem,2.4vw,1.65rem); line-height:1.48; letter-spacing:-.012em; }
-  .pitch .p-big b{ font-family:inherit; font-style:normal; font-weight:700; color:var(--accent); }
-  .proof{ display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem; margin-top:.4rem; }
-  .proof div{ border:1px solid var(--line); border-radius:14px; padding:1rem; }
-  .proof .n{ font-family:var(--font-display); font-weight:700; font-size:1.7rem; color:var(--accent); line-height:1; }
-  .proof .l{ color:var(--muted); font-size:.8rem; margin-top:.35rem; }
-  .hire-actions{ display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.6rem; }
+  .project-feature{ border:1px solid var(--line); border-radius:calc(var(--radius) + 4px); overflow:hidden; background:var(--bg-2); }
+  .feature-grid{ display:grid; grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr); }
+  .feature-visual{ min-height:520px; position:relative; display:grid; place-items:center; overflow:hidden; background:radial-gradient(circle at 50% 42%,rgba(255,77,46,.24),transparent 50%),#111115; }
+  .feature-visual::before{ content:"01"; position:absolute; left:1.5rem; top:1.1rem; font-family:"Anton",var(--font-display); font-size:clamp(4rem,9vw,7.5rem); line-height:1; color:rgba(244,241,234,.07); }
+  .feature-logo-frame{ width:min(68%,290px); aspect-ratio:1; position:relative; z-index:2; overflow:hidden; border:1px solid var(--line-2); border-radius:28px; background:#1E1E1C; box-shadow:0 36px 70px rgba(0,0,0,.38); }
+  .feature-logo-frame img{ width:100%; height:100%; object-fit:cover; }
+  .feature-copy{ padding:clamp(1.7rem,4vw,3.3rem); }
+  .feature-copy h3{ font-size:clamp(2.2rem,5vw,4.2rem); margin:.5rem 0 .85rem; }
+  .feature-copy .summary{ color:var(--muted); font-size:1.08rem; max-width:58ch; }
+  .case-points{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.5rem 0; }
+  .case-point{ padding:1rem 0; border-top:1px solid var(--line); }
+  .case-point h4{ font-family:var(--font-display); font-size:.76rem; color:var(--accent); letter-spacing:.08em; text-transform:uppercase; }
+  .case-point p{ margin-top:.4rem; color:var(--muted); font-size:.92rem; }
+  .evidence-box{ border:1px solid color-mix(in srgb,var(--signal) 28%,var(--line)); background:color-mix(in srgb,var(--signal) 5%,var(--surface)); border-radius:15px; padding:1rem 1.1rem; }
+  .evidence-box strong{ display:block; color:var(--signal); font-family:var(--font-display); font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
+  .evidence-box p{ margin-top:.35rem; color:var(--text); font-size:.92rem; }
 
-  /* ---------- about ---------- */
-  .about-grid{ display:grid; grid-template-columns:1.4fr .9fr; gap:clamp(2rem,5vw,4rem); align-items:center; }
-  .about-copy p{ color:var(--muted); font-size:1.08rem; margin-top:1.1rem; max-width:56ch; }
-  .about-copy p strong{ color:var(--text); font-weight:600; }
-  .portrait{ aspect-ratio:4/5; border-radius:var(--radius); border:1px solid var(--line); position:relative; overflow:hidden; background:var(--surface); }
-  .portrait img{ width:100%; height:100%; object-fit:cover; object-position:center 42%; }
+  .project-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.2rem; margin-top:1.2rem; }
+  .project-card{ background:var(--bg-2); border:1px solid var(--line); border-radius:var(--radius); padding:clamp(1.4rem,3vw,2rem); }
+  .project-head{ display:flex; align-items:center; gap:1rem; margin-bottom:1.2rem; }
+  .project-icon{ width:74px; height:74px; flex:none; object-fit:cover; border-radius:18px; border:1px solid var(--line); }
+  .project-head h3{ font-size:1.55rem; margin-bottom:.35rem; }
+  .project-summary{ color:var(--muted); font-size:1rem; }
+  .decision{ margin-top:1.2rem; padding:1rem; border-radius:14px; background:var(--surface); border:1px solid var(--line); }
+  .decision b{ display:block; color:var(--accent); font-family:var(--font-display); font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; }
+  .decision p{ margin-top:.35rem; color:var(--muted); font-size:.9rem; }
+  .project-proof{ margin-top:1rem; padding-top:1rem; border-top:1px solid var(--line); color:var(--text); font-size:.9rem; }
+  .project-proof strong{ color:var(--signal); }
 
-  /* ---------- work timeline ---------- */
-  .role{ display:grid; grid-template-columns:180px 1fr; gap:clamp(1rem,3vw,3rem); padding:1.9rem 0; border-top:1px solid var(--line); }
-  .role:hover .role-title{ color:var(--accent); }
-  .role .when{ font-family:var(--font-display); font-weight:700; color:var(--muted); font-size:.95rem; }
-  .role .where{ color:var(--signal); font-size:.78rem; margin-top:.3rem; letter-spacing:.06em; text-transform:uppercase; }
-  .role-title{ font-size:1.4rem; font-family:var(--font-display); font-weight:700; transition:color .2s; }
-  .role p{ color:var(--muted); margin-top:.5rem; max-width:60ch; }
-  .stackrow{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.9rem; }
-  .chip{ font-size:.77rem; color:var(--muted); border:1px solid var(--line); padding:.3rem .7rem; border-radius:100px; }
-  .edu{ display:flex; flex-wrap:wrap; gap:1.3rem; margin-top:2.2rem; }
-  .edu-card{ flex:1 1 240px; background:var(--bg-2); border:1px solid var(--line); border-radius:var(--radius); padding:1.4rem; }
-  .edu-card h3{ font-family:var(--font-display); font-size:1.05rem; margin-bottom:.2rem; }
-  .edu-card span{ color:var(--muted); font-size:.9rem; }
+  .work-band{ background:linear-gradient(180deg,var(--bg-2),transparent 72%); }
+  .impact-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-top:2rem; }
+  .impact-card{ padding:1.55rem; border-radius:var(--radius); border:1px solid var(--line); background:var(--surface); }
+  .impact-card .metric{ font-family:"Anton",var(--font-display); font-size:clamp(2.6rem,5vw,4.2rem); line-height:1; color:var(--accent); }
+  .impact-card h3{ margin-top:.85rem; font-size:1.16rem; }
+  .impact-card p{ margin-top:.55rem; color:var(--muted); font-size:.91rem; }
+  .privacy-note{ margin-top:1rem; color:var(--muted); font-size:.8rem; }
+  .career-arc{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:2.1rem; }
+  .career-card{ border-top:1px solid var(--line-2); padding:1.35rem 0 0; }
+  .career-card .when{ color:var(--signal); font-family:var(--font-display); font-size:.75rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+  .career-card h3{ margin-top:.45rem; font-size:1.35rem; }
+  .career-card p{ margin-top:.55rem; color:var(--muted); max-width:58ch; }
+  .credentials{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-top:2rem; }
+  .credential{ background:var(--bg-2); border:1px solid var(--line); border-radius:16px; padding:1.2rem; }
+  .credential h3{ font-size:1rem; }
+  .credential p{ margin-top:.35rem; color:var(--muted); font-size:.86rem; }
 
-  /* ---------- projects ---------- */
-  .projects{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.2rem; margin-top:1rem; }
-  .card{ background:var(--bg-2); border:1px solid var(--line); border-radius:var(--radius); padding:1.6rem; display:flex; flex-direction:column; gap:.7rem; min-height:230px; position:relative; overflow:hidden; transition:transform .25s var(--ease), border-color .25s; }
-  .card::after{ content:""; position:absolute; right:-40px; top:-40px; width:130px; height:130px; border-radius:50%; background:var(--accent); opacity:0; filter:blur(34px); transition:opacity .35s; }
-  .card:hover{ transform:translateY(-6px); border-color:color-mix(in srgb,var(--accent) 45%, var(--line)); }
-  .card:hover::after{ opacity:.22; }
-  .card .num{ font-family:var(--font-display); font-weight:700; font-size:.85rem; color:var(--accent); }
-  .card h3{ font-size:1.4rem; }
-  .card .desc{ color:var(--muted); font-size:.98rem; flex:1; }
-  .card .foot{ display:flex; align-items:center; justify-content:space-between; margin-top:.4rem; }
-  .status{ font-size:.7rem; font-family:var(--font-display); font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:.28rem .6rem; border-radius:100px; }
-  .status.live{ background:color-mix(in srgb,var(--signal) 20%, transparent); color:var(--signal); }
-  .status.beta{ background:color-mix(in srgb,var(--accent) 22%, transparent); color:var(--accent); }
-  .status.wip{ background:color-mix(in srgb,var(--halo) 30%, transparent); color:#bcacff; }
-  .card .go{ font-family:var(--font-display); font-weight:700; font-size:.9rem; display:inline-flex; gap:.35rem; }
-  .card .go::after{ content:"→"; transition:transform .2s var(--ease); }
-  .card:hover .go::after{ transform:translateX(4px); }
-
-  /* ---------- writing ---------- */
-  .writing{ display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(2rem,5vw,4rem); align-items:center; }
-  .cover{ aspect-ratio:992/1586; border-radius:8px; position:relative; overflow:hidden; border:1px solid var(--line); background:var(--surface); box-shadow:0 34px 64px -30px rgba(0,0,0,.85), inset 0 0 0 1px rgba(255,255,255,.04); }
+  .writing{ display:grid; grid-template-columns:.82fr 1.18fr; grid-template-areas:"cover copy"; gap:clamp(2rem,5vw,4rem); align-items:center; }
+  .cover{ grid-area:cover; max-width:440px; aspect-ratio:992/1586; border-radius:9px; overflow:hidden; border:1px solid var(--line); background:var(--surface); box-shadow:0 34px 64px -30px rgba(0,0,0,.85); }
   .cover img{ width:100%; height:100%; object-fit:cover; }
-  .writing-copy .kicker{ font-family:var(--font-serif); font-style:italic; color:var(--accent); font-size:1.15rem; }
-  .writing-copy p{ color:var(--muted); font-size:1.08rem; margin-bottom:1rem; max-width:56ch; }
-  .writing-copy .quote{ font-family:var(--font-serif); font-style:italic; font-size:1.25rem; color:var(--text); border-left:3px solid var(--accent); padding-left:1rem; margin:1.4rem 0; }
-  .otherwriting{ margin-top:2.4rem; }
-  .idea-note{ border-top:1px solid var(--line); padding-top:1.25rem; }
-  .idea-note h3{ font-family:var(--font-display); font-size:1.15rem; margin:.35rem 0 .55rem; }
-  .idea-note p{ font-size:.96rem; margin:0; }
+  .writing-copy{ grid-area:copy; }
+  .writing-copy .kicker{ font-family:var(--font-serif); font-style:italic; color:var(--accent); font-size:1.12rem; }
+  .writing-copy p{ color:var(--muted); font-size:1.06rem; margin-bottom:1rem; max-width:58ch; }
+  .writing-copy .quote{ font-family:var(--font-serif); font-style:italic; font-size:1.25rem; color:var(--text); border-left:3px solid var(--accent); padding-left:1rem; margin:1.35rem 0; }
+  .book-meta{ display:flex; flex-wrap:wrap; gap:.55rem; margin:1rem 0 0; }
+  .idea-note{ margin-top:2rem; padding-top:1.25rem; border-top:1px solid var(--line); }
+  .idea-note h3{ margin:.45rem 0 .55rem; font-size:1.2rem; }
+  .idea-note p{ font-size:.95rem; margin:0; }
 
-  /* ---------- athletics ---------- */
-  .stats{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1.1rem; margin:1rem 0 2.4rem; }
-  .stat{ background:var(--bg-2); border:1px solid var(--line); border-radius:var(--radius); padding:1.6rem 1.4rem; }
-  .stat .sport-label{ font-family:var(--font-display); font-weight:700; color:var(--accent); font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
-  .stat h3{ font-family:var(--font-display); font-size:1.25rem; margin:.55rem 0 .45rem; }
-  .stat p{ color:var(--muted); font-size:.94rem; }
+  .athletics-grid{ display:grid; grid-template-columns:.72fr 1.28fr; gap:clamp(1.5rem,4vw,3rem); align-items:stretch; margin-top:2rem; }
+  .distance-card{ min-height:390px; display:flex; flex-direction:column; justify-content:space-between; padding:clamp(1.5rem,4vw,2.4rem); border-radius:var(--radius); overflow:hidden; background:var(--accent); color:var(--bg); position:relative; }
+  .distance-card::after{ content:""; position:absolute; right:-80px; bottom:-100px; width:280px; height:280px; border-radius:50%; border:36px solid rgba(9,9,12,.12); }
+  .distance-card .distance{ font-family:"Anton",var(--font-display); font-size:clamp(5rem,12vw,9rem); line-height:.85; position:relative; z-index:2; }
+  .distance-card .unit{ font-family:var(--font-display); font-weight:700; letter-spacing:.12em; text-transform:uppercase; position:relative; z-index:2; }
+  .distance-card p{ max-width:28ch; font-family:var(--font-display); font-weight:600; position:relative; z-index:2; }
+  .athletics-copy{ display:flex; flex-direction:column; justify-content:center; }
+  .athletics-copy .lead{ max-width:620px; }
+  .ath-points{ display:grid; gap:.8rem; margin-top:1.4rem; }
+  .ath-point{ display:grid; grid-template-columns:120px 1fr; gap:1rem; padding-top:.9rem; border-top:1px solid var(--line); }
+  .ath-point b{ color:var(--accent); font-family:var(--font-display); font-size:.77rem; letter-spacing:.08em; text-transform:uppercase; }
+  .ath-point p{ color:var(--muted); font-size:.94rem; }
 
-  /* ---------- contact ---------- */
-  .contact{ text-align:center; padding:clamp(72px,11vw,150px) 0; position:relative; overflow:hidden; }
-  .contact .glow{ position:absolute; width:560px; height:560px; background:var(--accent); filter:blur(130px); opacity:.16; border-radius:50%; top:46%; left:50%; transform:translate(-50%,-50%); z-index:0; }
+  .about-grid{ display:grid; grid-template-columns:1.18fr .82fr; gap:clamp(2rem,5vw,4rem); align-items:center; }
+  .about-copy p{ color:var(--muted); font-size:1.06rem; margin-top:1rem; max-width:58ch; }
+  .about-copy strong{ color:var(--text); font-weight:600; }
+  .portrait{ aspect-ratio:4/5; border-radius:var(--radius); border:1px solid var(--line); overflow:hidden; background:var(--surface); }
+  .portrait img{ width:100%; height:100%; object-fit:cover; object-position:center 42%; }
+  .klockup{ display:inline-flex; align-items:center; margin-top:1.6rem; padding:.9rem 1.1rem; border:1px solid var(--line); border-radius:15px; background:var(--bg-2); }
+  .kmark{ font-family:var(--font-display); font-weight:700; font-size:1.5rem; letter-spacing:.3em; text-transform:uppercase; padding-left:.3em; }
+  .kcap{ margin-top:.3rem; color:var(--muted); font-size:.68rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; }
+
+  .contact{ text-align:center; padding:clamp(78px,11vw,150px) 0; overflow:hidden; }
+  .contact .glow{ position:absolute; width:560px; height:560px; background:var(--accent); filter:blur(130px); opacity:.15; border-radius:50%; top:46%; left:50%; transform:translate(-50%,-50%); z-index:0; }
   .contact-inner{ position:relative; z-index:2; }
-  .contact h2{ font-size:clamp(2.4rem,8.5vw,6.4rem); text-transform:uppercase; line-height:.94; }
+  .contact h2{ font-size:clamp(2.55rem,8vw,6rem); text-transform:uppercase; line-height:.95; }
   .contact h2 .em{ color:var(--accent); }
+  .contact .lead{ margin:1.25rem auto 0; max-width:690px; }
   .mailrow{ display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; justify-content:center; margin-top:1.8rem; }
-  .mail{ font-family:var(--font-display); font-weight:700; font-size:clamp(1.2rem,3.6vw,2rem); border-bottom:3px solid var(--accent); padding-bottom:.15rem; transition:color .2s; }
+  .mail{ font-family:var(--font-display); font-weight:700; font-size:clamp(1.1rem,3.4vw,1.85rem); border-bottom:3px solid var(--accent); padding-bottom:.12rem; transition:color .2s; }
   .mail:hover{ color:var(--accent); }
-  .copybtn{ font-family:var(--font-body); font-weight:600; font-size:.82rem; color:var(--muted); border:1px solid var(--line); border-radius:100px; padding:.5rem .9rem; background:none; transition:color .2s,border-color .2s; }
+  .copybtn{ min-height:44px; color:var(--muted); border:1px solid var(--line); border-radius:100px; padding:.52rem .95rem; background:none; font-weight:600; font-size:.82rem; transition:color .2s,border-color .2s; }
   .copybtn:hover{ color:var(--text); border-color:var(--line-2); }
-  /* ---------- footer ---------- */
-  footer{ border-top:1px solid var(--line); padding:2.2rem 0; }
-  .foot-inner{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; color:var(--muted); font-size:.85rem; }
-  .foot-inner .brand{ font-size:1rem; display:inline-flex; align-items:center; gap:.55rem; }
 
-  /* ---------- KATSUKO wordmark ---------- */
-  .klockup{ display:inline-flex; align-items:center; margin:1.8rem 0 .2rem; padding:.95rem 1.15rem; border:1px solid var(--line); border-radius:16px; background:var(--bg-2); }
-  .kmark{ font-family:var(--font-display); font-weight:700; font-size:1.85rem; letter-spacing:.36em; text-transform:uppercase; color:var(--text); padding-left:.36em; }
-  .kbrand{ font-family:var(--font-display); font-weight:700; letter-spacing:.24em; text-transform:uppercase; padding-left:.24em; }
-  .byk{ font-family:var(--font-body); font-size:.72rem; letter-spacing:.05em; color:var(--muted); margin-top:-.1rem; margin-bottom:.2rem; }
-  .kcap{ margin-top:.4rem; font-family:var(--font-body); font-weight:500; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+  footer{ position:relative; z-index:2; border-top:1px solid var(--line); padding:2rem 0; }
+  .foot-inner{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; color:var(--muted); font-size:.84rem; }
+  .foot-brand{ color:var(--text); font-family:var(--font-display); font-weight:700; }
 
-  /* ---------- reveal ---------- */
-  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s var(--ease), transform .8s var(--ease); transition-delay:var(--d,0s); }
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .72s var(--ease),transform .72s var(--ease); }
   .reveal.in{ opacity:1; transform:none; }
+  .no-js .reveal,.js-failed .reveal{ opacity:1; transform:none; }
 
-  /* ---------- responsive ---------- */
-  @media (max-width:880px){
-    .nav-links{ position:absolute; inset:100% 0 auto 0; flex-direction:column; gap:0; align-items:stretch; background:var(--bg-2); border-bottom:1px solid var(--line); opacity:0; visibility:hidden; pointer-events:none; transform:translateY(-140%); transition:transform .4s var(--ease),opacity .2s,visibility 0s linear .4s; padding:.4rem 0; }
+  @media (max-width:920px){
+    .nav-links{ position:absolute; inset:100% 0 auto 0; flex-direction:column; gap:0; align-items:stretch; background:var(--bg-2); border-bottom:1px solid var(--line); opacity:0; visibility:hidden; pointer-events:none; transform:translateY(-130%); transition:transform .4s var(--ease),opacity .2s,visibility 0s linear .4s; padding:.4rem 0; }
     .nav-links.open{ opacity:1; visibility:visible; pointer-events:auto; transform:none; transition-delay:0s; }
     .nav-links a.link{ padding:1rem var(--pad); border-top:1px solid var(--line); }
-    .nav-links .btn{ margin:1rem var(--pad); justify-content:center; }
-    .nav-toggle{ display:block; }
-    .about-grid,.writing,.hire-grid{ grid-template-columns:1fr; }
-    .writing .cover{ max-width:280px; }
-    .proof{ grid-template-columns:1fr; }
-    .role{ grid-template-columns:1fr; gap:.4rem; }
+    .nav-links .btn{ margin:1rem var(--pad); }
+    .nav-toggle{ display:grid; }
+    .feature-grid,.writing,.athletics-grid,.about-grid{ grid-template-columns:1fr; }
+    .writing{ grid-template-areas:"copy" "cover"; }
+    .feature-visual{ min-height:360px; }
+    .feature-logo-frame{ width:min(58%,260px); }
+    .project-grid,.impact-grid{ grid-template-columns:1fr; }
+    .credentials{ grid-template-columns:1fr; }
+    .writing .cover{ max-width:300px; }
+    .athletics-copy{ padding-block:1rem; }
     .no-js .nav-inner,.js-failed .nav-inner{ height:auto; flex-wrap:wrap; padding-block:.75rem; }
     .no-js .nav-links,.js-failed .nav-links{ position:static; flex:1 0 100%; opacity:1; visibility:visible; pointer-events:auto; transform:none; transition:none; border:0; background:transparent; margin-top:.5rem; }
     .no-js .nav-toggle,.js-failed .nav-toggle{ display:none; }
   }
+
+  @media (max-width:680px){
+    body::before{ display:none; }
+    .hero-glow span,.contact .glow{ filter:blur(72px); }
+    .hero-promise{ font-size:clamp(1.22rem,6vw,1.55rem); }
+    .proof-grid{ grid-template-columns:1fr; }
+    .proof-item{ border-left:0; border-top:1px solid var(--line); }
+    .proof-item:first-child{ border-top:0; }
+    .section-head{ display:block; }
+    .section-head .lead{ margin-top:.8rem; }
+    .case-points,.career-arc{ grid-template-columns:1fr; }
+    .rotator-control{ flex-basis:100%; min-inline-size:0; }
+    .rotator-shell{ min-inline-size:0; }
+    .ath-point{ grid-template-columns:1fr; gap:.3rem; }
+    .distance-card{ min-height:310px; }
+  }
+
   @media (prefers-reduced-motion:reduce){
     *{ animation:none !important; scroll-behavior:auto; transition:none !important; }
     .reveal{ opacity:1; transform:none; }
-    .intro{ display:none; }
-    .cursor,.cursor-dot{ display:none; }
+    .rotator-state{ display:none; }
   }
 </style>
 </head>
 <body>
 
 <a class="skip-link" href="#main-content">Skip to content</a>
-
-<!-- cursor / progress / intro -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-dot" id="cursorDot"></div>
 <div class="progress" id="progress"></div>
-<div class="intro" id="intro" aria-hidden="true"><div class="curtain" id="curtain"></div><div class="mark"><span id="introMark">CAN&nbsp;ISERI</span></div></div>
 
-<!-- ===================== NAV ===================== -->
 <header class="nav">
   <div class="wrap nav-inner">
-    <a href="#home" class="brand">CAN&nbsp;ISERI<small>Katsuko</small></a>
+    <a href="#home" class="brand" aria-label="Can Iseri, home">CAN&nbsp;ISERI</a>
     <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
-      <a class="link" href="#profile">Overview</a>
-      <a class="link" href="#about">About</a>
-      <a class="link" href="#work">Work</a>
-      <a class="link" href="#projects">Projects</a>
-      <a class="link" href="#writing">Writing &amp; Ideas</a>
+      <a class="link" href="#projects">Selected work</a>
+      <a class="link" href="#work">Professional</a>
+      <a class="link" href="#writing">Writing</a>
       <a class="link" href="#athletics">Athletics</a>
-      <a href="#contact" class="btn btn-primary magnetic">Say hello <span class="arw">→</span></a>
+      <a class="link" href="#about">About</a>
+      <a href="#contact" class="btn btn-primary">Start a conversation <span class="arw" aria-hidden="true">→</span></a>
     </nav>
     <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false">☰</button>
   </div>
 </header>
 
 <main id="main-content" tabindex="-1">
-<!-- ===================== HERO ===================== -->
-<section class="hero" id="home">
-  <div class="hero-glow"><span class="g1"></span><span class="g2"></span></div>
-  <div class="wrap hero-inner">
-    <span class="eyebrow reveal">Builder · Writer · Athlete</span>
-    <h1 class="reveal">CAN<br><span class="outline">ISERI</span></h1>
-    <p class="lede reveal">I ship <span class="rotator" id="rotator">products</span>, write <span class="serif">stories</span>, and finish races.<br>
-      Across each, I'm drawn to clear premises, human stakes, and the discipline required to finish.</p>
-    <div class="hero-ctas reveal">
-      <a href="#projects" class="btn btn-primary magnetic">Explore the work <span class="arw">→</span></a>
-      <a href="#writing" class="btn magnetic">Read about <span class="serif">The Receiver</span></a>
-    </div>
-    <div class="hero-facts reveal">
-      <div><b>Studio</b> · Katsuko</div>
-      <div><b>Working across</b> · Software · Fiction · Endurance</div>
-      <div><b>Drawn to</b> · Systems · Decisions · Human behavior</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== MARQUEE ===================== -->
-<div class="marquee" aria-hidden="true">
-  <div class="m-track">
-    <span>Product Strategy</span><span>Mobile Apps</span><span>Full-Stack Build</span><span>0→1 Products</span><span>Privacy-First UX</span><span>Decision Systems</span><span>Fiction &amp; Publishing</span><span>Endurance Sport</span>
-    <span>Product Strategy</span><span>Mobile Apps</span><span>Full-Stack Build</span><span>0→1 Products</span><span>Privacy-First UX</span><span>Decision Systems</span><span>Fiction &amp; Publishing</span><span>Endurance Sport</span>
-  </div>
-</div>
-
-<!-- ===================== OVERVIEW ===================== -->
-<section class="band hire" id="profile">
-  <div class="wrap">
-    <div class="hire-top">
-      <div>
-        <span class="idx reveal">(01)</span>
-        <h2 class="section-title reveal" style="margin-bottom:.3rem">The through-line.</h2>
+  <section class="hero" id="home">
+    <div class="hero-glow"><span class="g1"></span><span class="g2"></span></div>
+    <div class="wrap hero-inner">
+      <span class="eyebrow reveal">Technical product leader · Founder of Katsuko · Writer</span>
+      <h1 class="reveal">CAN<br><span class="outline">ISERI</span></h1>
+      <p class="hero-promise reveal">
+        <span>I turn complexity into</span>
+        <button class="rotator-control" id="rotatorToggle" type="button" aria-label="Pause rotating statement" aria-pressed="false" disabled>
+          <span class="rotator-shell" aria-hidden="true"><span class="rotator-word" id="heroRotator">products people trust.</span><span class="rotator-caret"></span></span>
+          <span class="rotator-state" aria-hidden="true">Ⅱ</span>
+        </button>
+        <span class="sr-only">products people trust, systems made clear, decisions people can use, and stories worth carrying.</span>
+      </p>
+      <p class="lede reveal">For more than a decade, I have led technical product work inside <strong>complex, regulated environments</strong>. Through Katsuko, I carry that practice into consumer software. I also write speculative fiction and run marathons.</p>
+      <div class="hero-ctas reveal">
+        <a href="#projects" class="btn btn-primary">Explore selected work <span class="arw" aria-hidden="true">→</span></a>
+        <a href="#contact" class="btn">Start a conversation <span class="arw" aria-hidden="true">→</span></a>
       </div>
-      <p class="lead reveal" style="max-width:420px">Three practices, one way of working.</p>
     </div>
+  </section>
 
-    <div class="hire-grid">
-      <div class="looking reveal">
-        <h3>What connects the work</h3>
-        <dl>
-          <dt>Build</dt><dd>Ideas → usable systems</dd>
-          <dt>Write</dt><dd>Speculation → human questions</dd>
-          <dt>Run</dt><dd>Patience → durable practice</dd>
-          <dt>Studio</dt><dd>Katsuko</dd>
-        </dl>
-      </div>
+  <section class="proof-rail" aria-label="Selected credentials">
+    <div class="wrap proof-grid">
+      <div class="proof-item"><div class="n">10+ years</div><div class="l">Technical product leadership in complex systems</div></div>
+      <div class="proof-item"><div class="n">3 independent builds</div><div class="l">Scorch, HardBeet, and Aurora developed through Katsuko</div></div>
+      <div class="proof-item"><div class="n">Published</div><div class="l">The Receiver, a Kindle short released in 2026</div></div>
+    </div>
+  </section>
 
-      <div class="pitch reveal">
-        <p class="p-big">I'm interested in what happens when a complex idea becomes <b>usable, felt, or testable.</b> Software, fiction, and endurance are different forms of the same practice: choose a clear premise, work through the constraints, and keep refining until it holds.</p>
-        <div class="proof">
-          <div><div class="n">Build</div><div class="l">Products for fair competition, care, and clearer decisions.</div></div>
-          <div><div class="n">Write</div><div class="l">Speculative fiction about intelligence, authenticity, and repair.</div></div>
-          <div><div class="n">Run</div><div class="l">Marathon practice with a long-term World Majors ambition.</div></div>
+  <section class="band" id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="idx reveal">(01)</span>
+          <h2 class="section-title reveal">Selected work.</h2>
         </div>
-        <div class="hire-actions">
-          <a href="#about" class="btn btn-primary magnetic">Meet the person behind it <span class="arw">→</span></a>
-        </div>
+        <p class="lead reveal">Independent products built under Katsuko, each centered on a sharp human problem and an honest release boundary.</p>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- ===================== ABOUT ===================== -->
-<section class="band" id="about">
-  <div class="wrap">
-    <span class="idx reveal">(02)</span>
-    <div class="about-grid" style="margin-top:.3rem">
-      <div class="about-copy reveal">
-        <h2 class="section-title">A one-person studio<br>for ideas that ship.</h2>
-        <p>I'm Can Iseri, a <strong>founder and product builder</strong> working across consumer software, story, and sport. Through Katsuko, I'm building Scorch, HardBeet, and Aurora: products for fairer competition, caring without surveillance, and clearer travel decisions.</p>
-        <p><strong>Katsuko is my independent studio.</strong> Alongside it, I continue to work in technical product leadership across regulated financial systems, building on more than a decade of experience in platform reengineering, analytics, and API integrations.</p>
-        <p>I work end to end: <strong>product strategy, UX, mobile and web engineering, backend systems, privacy and compliance boundaries, QA, and release preparation.</strong> The through-line is turning a complicated human problem into a focused experience people can understand and use.</p>
-        <p>The independent work you see here ships under <strong>Katsuko</strong>, a creative house for software, stories, and experiments. The legal entity is <span style="color:var(--muted)">Katsuko, Inc.</span></p>
-        <div class="klockup">
-          <div>
-            <div class="kmark">KATSUKO</div>
-            <div class="kcap">Software, stories &amp; experiments · by Can Iseri</div>
+      <article class="project-feature reveal">
+        <div class="feature-grid">
+          <div class="feature-visual">
+            <div class="feature-logo-frame">
+              <img src="scorch-icon.png" alt="Scorch flame mark" width="2048" height="2048" loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <div class="feature-copy">
+            <span class="status beta">Private pilot build</span>
+            <h3>Scorch</h3>
+            <p class="summary">Scorch makes head-to-head running fair across different paces. It turns mapped local routes into scheduled races where each runner gets a pace-based start and the whole field races toward one finish.</p>
+            <div class="case-points">
+              <div class="case-point">
+                <h4>The problem</h4>
+                <p>Local competition is often club-dependent, pace-matched, or tied to formal race calendars.</p>
+              </div>
+              <div class="case-point">
+                <h4>My role</h4>
+                <p>I defined the product, designed the athlete journey, built the iOS client and backend, and set the privacy, safety, and launch gates.</p>
+              </div>
+              <div class="case-point">
+                <h4>The key decision</h4>
+                <p>I removed cash prizes, payments, cycling, health-data integrations, and broad public claims from the first release so the pilot can prove free, run-only fair-start racing.</p>
+              </div>
+              <div class="case-point">
+                <h4>What is real now</h4>
+                <p>The complete free-race lifecycle is validated against the backend. Outdoor physical-device testing is the next gate.</p>
+              </div>
+            </div>
+            <div class="evidence-box">
+              <strong>Verified build evidence</strong>
+              <p>As of July 2026, 256 automated tests and 118 release-readiness checks pass across registration, server-timed starts, route telemetry, evidence-backed finishes, review, and results.</p>
+            </div>
+            <div class="chip-row" style="margin-top:1rem"><span class="chip">Fair starts</span><span class="chip">Live route progress</span><span class="chip">Privacy boundaries</span><span class="chip">Release hardening</span></div>
           </div>
         </div>
-      </div>
-      <div class="portrait reveal">
-        <img src="can-iseri.jpg" alt="Can Iseri" width="784" height="1077" loading="lazy" decoding="async">
-      </div>
-    </div>
-  </div>
-</section>
+      </article>
 
-<!-- ===================== WORK ===================== -->
-<section class="band" id="work">
-  <div class="wrap">
-    <span class="idx reveal">(03)</span>
-    <h2 class="section-title reveal" style="margin-top:.3rem">How I build.</h2>
-    <p class="lead reveal">Technical product leadership shaped in complex systems, then carried into independent software, stories, and experiments.</p>
-    <div style="margin-top:1rem">
-      <article class="role reveal"><div><div class="when">Foundation</div><div class="where">Technical product</div></div>
-        <div><h3 class="role-title">Complex systems, made legible.</h3><p>More than a decade across financial technology, risk platforms, analytics, and APIs taught me to turn ambiguity, constraints, and high-stakes workflows into products people can understand and trust.</p>
-        <div class="stackrow"><span class="chip">Product strategy</span><span class="chip">Systems thinking</span><span class="chip">Data &amp; APIs</span></div></div></article>
-      <article class="role reveal"><div><div class="when">Practice</div><div class="where">Independent studio</div></div>
-        <div><h3 class="role-title">From premise to finished product.</h3><p>Through Katsuko, I stay close to the full arc: research, product direction, UX, engineering, privacy boundaries, testing, and release readiness.</p>
-        <div class="stackrow"><span class="chip">0→1 products</span><span class="chip">UX</span><span class="chip">Engineering</span><span class="chip">Release</span></div></div></article>
-      <article class="role reveal"><div><div class="when">Perspective</div><div class="where">Cross-disciplinary</div></div>
-        <div><h3 class="role-title">One method, different forms.</h3><p>Software, fiction, and endurance all ask for the same things: a clear premise, respect for constraints, honest feedback, and the patience to keep refining.</p>
-        <div class="stackrow"><span class="chip">Software</span><span class="chip">Story</span><span class="chip">Endurance</span></div></div></article>
-    </div>
-    <div class="edu">
-      <div class="edu-card reveal"><h3>Quantitative grounding</h3><span>Graduate training in financial engineering, preceded by engineering study.</span></div>
-      <div class="edu-card reveal"><h3>Technical fluency</h3><span>Data, APIs, cloud systems, Python, SQL, and analytical tooling.</span></div>
-      <div class="edu-card reveal"><h3>Operating style</h3><span>Clear product promises, thoughtful constraints, and hands-on delivery.</span></div>
-    </div>
-  </div>
-</section>
+      <div class="project-grid">
+        <article class="project-card reveal">
+          <div class="project-head">
+            <img class="project-icon" src="hardbeet-icon.png" alt="HardBeet lightning mark" width="1024" height="1024" loading="lazy" decoding="async" />
+            <div><h3>HardBeet</h3><span class="status beta">Active development</span></div>
+          </div>
+          <p class="project-summary">Care should not require surveillance. HardBeet creates a respectful daily check-in agreement: one deliberate tap, people you approve, and a clear escalation path when a check-in is missed.</p>
+          <div class="decision">
+            <b>Product boundary</b>
+            <p>Only a deliberate tap creates the shared signal. No live location or private phone activity is exposed, and offline check-ins stay visibly unconfirmed until the backend receives them.</p>
+          </div>
+          <p class="project-proof"><strong>Build-readiness evidence:</strong> React Native client, Supabase backend, consent model, notification escalation, privacy controls, offline behavior, localization foundation, security hardening, and release QA. The current candidate has passed 29 automated tests plus backend, access-control, and account-deletion checks. Physical-device QA is the next gate before external distribution.</p>
+        </article>
 
-<!-- ===================== PROJECTS ===================== -->
-<section class="band" id="projects">
-  <div class="wrap">
-    <span class="idx reveal">(04)</span>
-    <h2 class="section-title reveal" style="margin-top:.3rem">Things I've made.</h2>
-    <p class="lead reveal">Independent products designed and built under <strong style="color:var(--text)">Katsuko</strong>, each centered on a sharp user problem and an honest product promise.</p>
-    <div class="projects">
-      <a href="https://scorchapp.xyz/" class="card reveal" target="_blank" rel="noopener" aria-label="Visit the Scorch website"><div class="num">01</div><h3>Scorch</h3><div class="byk">by Katsuko</div><div class="desc">A fair-start racing app for runners who want local competition without needing a club. Scorch uses recent pace to stagger starts, then tracks live gaps, route progress, finish confidence, and reviewed results.</div><div class="foot"><span class="status beta">iOS pilot</span><span class="go">Visit site</span></div></a>
-      <a href="https://github.com/caniseri/hardbeet" class="card reveal" target="_blank" rel="noopener" aria-label="View the HardBeet project on GitHub"><div class="num">02</div><h3>HardBeet</h3><div class="byk">by Katsuko</div><div class="desc">A consent-first daily check-in app for independent loved ones. One deliberate tap creates the signal, approved people can see it, and no live location or private phone activity is shared.</div><div class="foot"><span class="status wip">MVP hardening</span><span class="go">View repo</span></div></a>
-      <a href="https://github.com/caniseri/aurora" class="card reveal" target="_blank" rel="noopener" aria-label="View the Aurora project on GitHub"><div class="num">03</div><h3>Aurora</h3><div class="byk">by Katsuko</div><div class="desc">A web-first cruise decision and price-watch proof of concept. Its Cruise Passport combines route, ship, cabin, party, and price preferences to explain fit, alternatives, and target-price watch opportunities.</div><div class="foot"><span class="status wip">Working POC</span><span class="go">View repo</span></div></a>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== WRITING ===================== -->
-<section class="band" id="writing">
-  <div class="wrap">
-    <span class="idx reveal">(05)</span>
-    <div class="writing" style="margin-top:.3rem">
-      <div class="cover reveal">
-        <img src="the-receiver-cover.png" alt="Cover of The Receiver by Can Iseri" width="992" height="1586" loading="lazy" decoding="async">
+        <article class="project-card reveal">
+          <div class="project-head">
+            <img class="project-icon" src="aurora-icon.svg" alt="Aurora cruise intelligence mark" width="512" height="512" loading="lazy" decoding="async" />
+            <div><h3>Aurora</h3><span class="status wip">Working prototype</span></div>
+          </div>
+          <p class="project-summary">Aurora turns cruise history, route preferences, cabin needs, and a price threshold into explainable fit recommendations and quiet price-watch opportunities.</p>
+          <div class="decision">
+            <b>Product boundary</b>
+            <p>Recommendations expose route fit, tradeoffs, and confidence before asking someone to watch or act. Unsupported or private data paths are blocked instead of quietly scraped.</p>
+          </div>
+          <p class="project-proof"><strong>Prototype evidence:</strong> Cruise Passport, itinerary-fit model, Decision Confidence layer, privacy boundaries, source-policy architecture, installable PWA, backend scaffolding, and native shells. The fixture-backed validation suite currently passes 25 of 25 tests. A compliant live-source adapter and observed planning sessions are the next gates.</p>
+        </article>
       </div>
-      <div class="writing-copy reveal">
-        <div class="kicker">Near-future science fiction · Short story</div>
-        <h2 class="section-title" style="margin-top:.2rem">The Receiver</h2>
-        <p>When an evaluator discovers a frontier model translating concepts no human culture has ever named, she must decide what version of humanity to show whatever may be listening on the other side. <em>The Receiver</em> is a story about first contact through machines. It asks whether authenticity, performance, and our capacity for repair can ever be separated.</p>
-        <div class="quote">“Performance degrades authenticity. Repair improves compatibility.”</div>
-        <div class="hero-ctas" style="margin-top:0">
-          <span class="chip">Kindle edition in preparation</span>
-          <a href="#" class="btn btn-primary magnetic" data-cta="receiver">Ask about the story</a>
-        </div>
-        <div class="kcap" style="margin-top:1.1rem">© 2026 Can Iseri · A Katsuko story</div>
-        <div class="otherwriting">
+    </div>
+  </section>
+
+  <section class="band work-band" id="work">
+    <div class="wrap">
+      <span class="idx reveal">(02)</span>
+      <h2 class="section-title reveal">Proof from complex systems.</h2>
+      <p class="lead reveal">I currently lead technical product work for a global financial institution. The role spans roadmap decisions, cross-functional alignment, and hands-on technical delivery across product, engineering, analytics, risk, and control partners. Selected outcomes are anonymized to protect internal systems and teams.</p>
+
+      <div class="impact-grid">
+        <article class="impact-card reveal">
+          <div class="metric">35%</div>
+          <h3>More efficient core workflows</h3>
+          <p>Led reengineering across model validation, risk rating, and change-management workflows in a core risk platform.</p>
+        </article>
+        <article class="impact-card reveal">
+          <div class="metric">50%</div>
+          <h3>Faster breach detection</h3>
+          <p>Built an automated model-performance evaluation approach across forecasting, trading, and valuation models.</p>
+        </article>
+        <article class="impact-card reveal">
+          <div class="metric">3×</div>
+          <h3>Greater API adoption</h3>
+          <p>Led model-risk API enhancements that expanded adoption across internal product and platform consumers.</p>
+        </article>
+      </div>
+      <p class="privacy-note reveal">Selected figures reflect completed work and are anonymized. Confidential platform names, teams, and regulatory details are intentionally omitted.</p>
+
+      <div class="career-arc">
+        <article class="career-card reveal">
+          <div class="when">Current practice</div>
+          <h3>Regulated systems made legible.</h3>
+          <p>Product leadership across financial platforms, analytics, API integrations, model risk, and reengineering. The work is to turn high-stakes workflows into decisions people can understand and trust.</p>
+        </article>
+        <article class="career-card reveal">
+          <div class="when">Earlier foundation</div>
+          <h3>Data and platforms at enterprise scale.</h3>
+          <p>Earlier work included a multi-billion-dollar syndicated-loan platform migration, analytics integration, and web-service delivery across financial and healthcare systems.</p>
+        </article>
+      </div>
+
+      <div class="credentials">
+        <div class="credential reveal"><h3>MSc, Financial Engineering</h3><p>New York University · Quantitative modeling, analytics, and optimization</p></div>
+        <div class="credential reveal"><h3>BSc, Chemical and Biological Engineering</h3><p>Koç University · Engineering systems and quantitative foundations</p></div>
+        <div class="credential reveal"><h3>Technical fluency</h3><p>Product strategy · Python · SQL · APIs · Cloud systems · Mobile and web delivery</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="writing">
+    <div class="wrap">
+      <span class="idx reveal">(03)</span>
+      <div class="writing" style="margin-top:.4rem">
+        <div class="writing-copy reveal">
+          <div class="kicker">Published Kindle short · July 2026</div>
+          <h2 class="section-title" style="margin-top:.2rem">The Receiver</h2>
+          <p>When an evaluator discovers a frontier model translating concepts no human culture has ever named, she must decide what version of humanity to show whatever may be listening on the other side.</p>
+          <p><em>The Receiver</em> is a story about first contact through machines. It asks whether authenticity, performance, and our capacity for repair can ever be separated.</p>
+          <div class="quote">“Performance degrades authenticity. Repair improves compatibility.”</div>
+          <div class="hero-ctas" style="margin-top:0">
+            <a href="https://www.amazon.com/dp/B0H8RGDN71" class="btn btn-primary" target="_blank" rel="noopener" aria-label="Read The Receiver on Amazon, opens in a new tab">Read on Amazon <span class="arw" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="book-meta"><span class="status live">Available now</span><span class="chip">38 pages</span><span class="chip">Kindle edition</span><span class="chip">English</span></div>
           <div class="idea-note">
             <span class="eyebrow">The idea beneath the story</span>
             <h3>The Orchard Hypothesis</h3>
             <p>A speculative framework that imagines civilizations as living systems whose mature intelligences create self-models: models that might one day become comparable, translatable, or receivable across worlds.</p>
-            <div class="stackrow"><span class="chip">Authenticity vs. self-presentation</span><span class="chip">Intelligence as relationship</span><span class="chip">Repair over perfection</span></div>
+            <div class="chip-row" style="margin-top:.9rem"><span class="chip">Authenticity and self-presentation</span><span class="chip">Intelligence as relationship</span><span class="chip">Repair over perfection</span></div>
+          </div>
+        </div>
+        <div class="cover reveal">
+          <picture>
+            <source srcset="the-receiver-cover.webp" type="image/webp" />
+            <img src="the-receiver-cover.png" alt="Cover of The Receiver by Can Iseri" width="992" height="1586" loading="lazy" decoding="async" />
+          </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="athletics">
+    <div class="wrap">
+      <span class="idx reveal">(04)</span>
+      <div class="athletics-grid">
+        <div class="distance-card reveal" aria-label="Marathon distance, 26.2 miles">
+          <div><div class="distance">26.2</div><div class="unit">miles · one practice</div></div>
+          <p>Progress accumulates through preparation, honest feedback, recovery, and return.</p>
+        </div>
+        <div class="athletics-copy reveal">
+          <h2 class="section-title">Built for the long run.</h2>
+          <p class="lead">I am a marathoner pursuing all six World Marathon Majors. Endurance is not a metaphor added to the brand. It is part of how I learn, make decisions, and keep working when the first plan meets reality.</p>
+          <div class="ath-points">
+            <div class="ath-point"><b>The pursuit</b><p>Complete the six World Marathon Majors through patient, sustainable progress.</p></div>
+            <div class="ath-point"><b>The product origin</b><p>Scorch grew from a runner’s question: how can people at different paces still experience a meaningful head-to-head race?</p></div>
+            <div class="ath-point"><b>The operating habit</b><p>Plan carefully, test honestly, adjust without drama, and return to the work.</p></div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===================== ATHLETICS ===================== -->
-<section class="band" id="athletics">
-  <div class="wrap">
-    <span class="idx reveal">(06)</span>
-    <h2 class="section-title reveal" style="margin-top:.3rem">Built for the long run.</h2>
-    <p class="lead reveal">I'm a marathoner drawn to endurance: preparing patiently, adapting honestly, and returning to the work. Completing the World Marathon Majors is a long-term ambition, but the practice matters more to me than broadcasting a results sheet.</p>
-    <div class="stats">
-      <article class="stat reveal"><div class="sport-label">Endurance</div><h3>Patience as practice.</h3><p>Running turns progress into something tangible: accumulated over time, one deliberate effort at a time.</p></article>
-      <article class="stat reveal"><div class="sport-label">Fair competition</div><h3>The idea behind Scorch.</h3><p>That interest led to fair-start racing, with staggered starts designed to give runners at different paces a meaningful race on the same route.</p></article>
-      <article class="stat reveal"><div class="sport-label">One practice</div><h3>Sport is part of the work.</h3><p>The same habits shape my products and writing: stay curious, test honestly, recover, and keep refining.</p></article>
+  <section class="band" id="about">
+    <div class="wrap">
+      <span class="idx reveal">(05)</span>
+      <div class="about-grid" style="margin-top:.4rem">
+        <div class="about-copy reveal">
+          <h2 class="section-title">The person behind the systems.</h2>
+          <p>I am Can Iseri, a <strong>technical product leader, independent builder, writer, and marathoner</strong> based in New York. My professional work lives inside regulated financial systems. My independent work ships through Katsuko.</p>
+          <p><strong>Katsuko is the label for Scorch, HardBeet, Aurora, and The Receiver.</strong> It gives me a place to carry one practice across software and story: make a difficult idea clear enough to use, test, or feel.</p>
+          <p>I work close to the full arc, from product promise and UX through engineering, privacy boundaries, validation, and release preparation. The medium changes. The standard does not.</p>
+          <div class="klockup"><div><div class="kmark">KATSUKO</div><div class="kcap">Software · stories · experiments · by Can Iseri</div></div></div>
+        </div>
+        <div class="portrait reveal">
+          <img src="can-iseri.jpg" alt="Can Iseri" width="784" height="1077" loading="lazy" decoding="async" />
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===================== CONTACT ===================== -->
-<section class="contact" id="contact">
-  <div class="glow"></div>
-  <div class="wrap contact-inner">
-    <span class="eyebrow reveal" style="justify-content:center">Open to thoughtful conversations</span>
-    <h2 class="reveal">Something here<br><span class="em">resonate?</span></h2>
-    <p class="lead reveal" style="margin:1.2rem auto 0">If a product, story, or idea here connects with something you're thinking about, send a note.</p>
-    <div class="mailrow reveal">
-      <a href="#" class="mail" id="mailLink">iserican@gmail.com</a>
-      <button class="copybtn magnetic" id="copyBtn" type="button">Copy email</button>
+  <section class="contact" id="contact">
+    <div class="glow"></div>
+    <div class="wrap contact-inner">
+      <span class="eyebrow reveal" style="justify-content:center">Open to thoughtful conversations</span>
+      <h2 class="reveal">Does something here<br><span class="em">resonate?</span></h2>
+      <p class="lead reveal">I am open to thoughtful conversations about technical product leadership, independent builds, publishing, and aligned collaborations. Tell me what you are working on and what a useful conversation would look like.</p>
+      <div class="mailrow reveal">
+        <a href="mailto:iserican@gmail.com" class="mail" id="mailLink">iserican@gmail.com</a>
+        <button class="copybtn" id="copyBtn" type="button" aria-live="polite">Copy email</button>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 </main>
 
-<!-- ===================== FOOTER ===================== -->
 <footer>
   <div class="wrap foot-inner">
-    <span class="brand kbrand">KATSUKO</span>
-    <span>© <span id="year"></span> Katsuko, Inc. · All rights reserved.</span>
+    <span><span class="foot-brand">CAN ISERI</span> · Independent work via Katsuko</span>
+    <span>© <span id="year">2026</span> Katsuko, Inc. · All rights reserved.</span>
   </div>
 </footer>
 
 <script>
-  /* ============ CONFIG: edit these ============ */
   const MAIL = "iserican@gmail.com";
-  const MAIL_SUBJECT = "A note from your portfolio";
+  const MAIL_SUBJECT = "A conversation from caniseri.com";
   const MAIL_BODY = "Hi Can,\n\nI came across your site and wanted to reach out about:\n\n\nBest,\n";
-  const RECEIVER_SUBJECT = "The Receiver: reader inquiry";
-  const RECEIVER_BODY = "Hi Can,\n\nI came across The Receiver on your site and would like to learn more.\n\nBest,\n";
-
-  const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
-  const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
-  const storage = {
-    get(key){ try{ return sessionStorage.getItem(key); } catch(e){ return null; } },
-    set(key,value){ try{ sessionStorage.setItem(key,value); } catch(e){} }
-  };
-
-  /* ============ pre-filled email + CTA routing ============ */
   const mailto = "mailto:" + MAIL + "?subject=" + encodeURIComponent(MAIL_SUBJECT) + "&body=" + encodeURIComponent(MAIL_BODY);
-  const receiverMailto = "mailto:" + MAIL + "?subject=" + encodeURIComponent(RECEIVER_SUBJECT) + "&body=" + encodeURIComponent(RECEIVER_BODY);
-  document.querySelectorAll('[data-cta="receiver"]').forEach(a => a.href = receiverMailto);
   const mailLink = document.getElementById('mailLink');
   mailLink.href = mailto;
   mailLink.textContent = MAIL;
 
-  /* ============ copy email ============ */
+  const rotationPhrases = [
+    "products people trust.",
+    "systems made clear.",
+    "decisions people can use.",
+    "stories worth carrying."
+  ];
+  const heroRotator = document.getElementById('heroRotator');
+  const rotatorToggle = document.getElementById('rotatorToggle');
+  const rotatorState = rotatorToggle.querySelector('.rotator-state');
+  const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+  let rotationIndex = 0;
+  let rotationInterval = null;
+  let rotationSwap = null;
+  let rotationPaused = false;
+
+  const stopRotation = function () {
+    clearInterval(rotationInterval);
+    clearTimeout(rotationSwap);
+    rotationInterval = null;
+    rotationSwap = null;
+    heroRotator.classList.remove('changing');
+  };
+  const advanceRotation = function () {
+    heroRotator.classList.add('changing');
+    rotationSwap = setTimeout(function () {
+      rotationIndex = (rotationIndex + 1) % rotationPhrases.length;
+      heroRotator.textContent = rotationPhrases[rotationIndex];
+      heroRotator.classList.remove('changing');
+      rotationSwap = null;
+    }, 200);
+  };
+  const startRotation = function () {
+    if (motionPreference.matches || rotationPaused || document.hidden || rotationInterval) return;
+    rotationInterval = setInterval(advanceRotation, 3800);
+  };
+  const setRotationPaused = function (paused) {
+    rotationPaused = paused;
+    rotatorToggle.setAttribute('aria-pressed', String(paused));
+    rotatorToggle.setAttribute('aria-label', paused ? 'Resume rotating statement' : 'Pause rotating statement');
+    rotatorState.textContent = paused ? '▶' : 'Ⅱ';
+    if (paused) stopRotation(); else startRotation();
+  };
+
+  rotatorToggle.disabled = motionPreference.matches;
+  rotatorToggle.addEventListener('click', function () { setRotationPaused(!rotationPaused); });
+  motionPreference.addEventListener('change', function () {
+    stopRotation();
+    rotatorToggle.disabled = motionPreference.matches;
+    if (motionPreference.matches) {
+      rotationIndex = 0;
+      heroRotator.textContent = rotationPhrases[0];
+    } else {
+      startRotation();
+    }
+  });
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) stopRotation(); else startRotation();
+  });
+  startRotation();
+
   const copyBtn = document.getElementById('copyBtn');
-  copyBtn.addEventListener('click', async () => {
-    try{ await navigator.clipboard.writeText(MAIL); }
-    catch(e){ const t=document.createElement('textarea'); t.value=MAIL; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
-    const old = copyBtn.textContent; copyBtn.textContent = "Copied ✓"; copyBtn.style.color = "var(--signal)";
-    setTimeout(()=>{ copyBtn.textContent = old; copyBtn.style.color=""; }, 1600);
+  copyBtn.addEventListener('click', async function () {
+    let copied = false;
+    try {
+      await navigator.clipboard.writeText(MAIL);
+      copied = true;
+    } catch (e) {
+      const t = document.createElement('textarea');
+      t.value = MAIL;
+      document.body.appendChild(t);
+      t.select();
+      try { copied = document.execCommand('copy'); } catch (fallbackError) { copied = false; }
+      t.remove();
+    }
+    const old = copyBtn.textContent;
+    copyBtn.textContent = copied ? "Copied ✓" : "Copy failed";
+    copyBtn.style.color = copied ? "var(--signal)" : "var(--accent)";
+    setTimeout(function () { copyBtn.textContent = old; copyBtn.style.color = ""; }, 1600);
   });
 
-  /* ============ mobile nav ============ */
   const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
-  const mobileMenu = matchMedia('(max-width:880px)');
-  const setMenu = (open) => {
+  const links = document.getElementById('navLinks');
+  const mobileMenu = matchMedia('(max-width:920px)');
+  const setMenu = function (open) {
     const isOpen = mobileMenu.matches && open;
     links.classList.toggle('open', isOpen);
     links.inert = mobileMenu.matches && !isOpen;
     toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.textContent = isOpen ? '×' : '☰';
   };
-  toggle.addEventListener('click', () => setMenu(!links.classList.contains('open')));
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
-  addEventListener('keydown', e => { if(e.key === 'Escape' && links.classList.contains('open')){ setMenu(false); toggle.focus(); } });
-  mobileMenu.addEventListener('change', () => setMenu(false));
+  toggle.addEventListener('click', function () { setMenu(!links.classList.contains('open')); });
+  links.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && links.classList.contains('open')) { setMenu(false); toggle.focus(); }
+  });
+  mobileMenu.addEventListener('change', function () { setMenu(false); });
   setMenu(false);
 
-  /* ============ footer year ============ */
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ============ rotating hero word ============ */
-  const words = ['products','mobile apps','decision tools','experiences','stories'];
-  const rot = document.getElementById('rotator');
-  if (!reduce){ let wi = 0; setInterval(()=>{ wi=(wi+1)%words.length; rot.textContent=words[wi]; }, 2200); }
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold:.12 });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  }
 
-  /* ============ staggered scroll reveal ============ */
-  document.querySelectorAll('.projects, .stats, .edu, .proof, .hero-facts').forEach(group => {
-    [...group.children].forEach((c,i)=>{ if(c.classList.contains('reveal')) c.style.setProperty('--d', (i*0.07)+'s'); });
-  });
-  const io = new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:0.14});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-  /* ============ scroll progress ============ */
   const progress = document.getElementById('progress');
-  const onScroll = () => {
+  const onScroll = function () {
     const h = document.documentElement.scrollHeight - innerHeight;
-    const p = h>0 ? (scrollY/h) : 0;
-    progress.style.width = (p*100) + '%';
+    progress.style.width = ((h > 0 ? scrollY / h : 0) * 100) + '%';
   };
-  addEventListener('scroll', onScroll, {passive:true}); onScroll();
-
-  /* intro reveal */
-  const intro = document.getElementById('intro'), curtain = document.getElementById('curtain'), introMark = document.getElementById('introMark');
-  if (reduce || storage.get('introShown')) { intro.style.display='none'; }
-  else {
-    storage.set('introShown','1');
-    introMark.animate([{transform:'translateY(110%)'},{transform:'translateY(0)'}], {duration:650, easing:'cubic-bezier(.19,1,.22,1)', fill:'forwards'});
-    curtain.animate([{transform:'scaleY(0)'},{transform:'scaleY(0)',offset:.55},{transform:'scaleY(1)',transformOrigin:'bottom'}], {duration:1150, easing:'cubic-bezier(.7,0,.2,1)', fill:'forwards'});
-    setTimeout(()=>{ intro.classList.add('done'); intro.style.transition='opacity .4s'; intro.style.opacity='0'; setTimeout(()=>intro.style.display='none',420); }, 1200);
-    intro.addEventListener('click', ()=>{ intro.style.display='none'; });
-  }
-
-  /* custom cursor + magnetic buttons */
-  if (fine && !reduce){
-    const cur = document.getElementById('cursor'), dot = document.getElementById('cursorDot');
-    let cx=innerWidth/2, cy=innerHeight/2, tx=cx, ty=cy;
-    addEventListener('mousemove', e=>{ tx=e.clientX; ty=e.clientY; dot.style.transform=`translate(${tx}px,${ty}px)`; });
-    const loop=()=>{ cx+=(tx-cx)*0.18; cy+=(ty-cy)*0.18; cur.style.transform=`translate(${cx}px,${cy}px)`; requestAnimationFrame(loop); }; loop();
-    document.querySelectorAll('a,button,.magnetic').forEach(el=>{
-      el.addEventListener('mouseenter',()=>cur.classList.add('grow'));
-      el.addEventListener('mouseleave',()=>{ cur.classList.remove('grow'); el.style.transform=''; });
-    });
-    document.querySelectorAll('.magnetic').forEach(el=>{
-      el.addEventListener('mousemove', e=>{ const r=el.getBoundingClientRect(); const mx=e.clientX-(r.left+r.width/2), my=e.clientY-(r.top+r.height/2); el.style.transform=`translate(${mx*0.25}px,${my*0.35}px)`; });
-    });
-  }
+  addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
 </script>
 </body>
 </html>
