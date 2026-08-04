@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="referrer" content="no-referrer" />
 <title>Can Iseri | Technical Product Leader, Founder &amp; Writer</title>
-<meta name="description" content="Can Iseri is a technical product leader, founder of Katsuko, writer, and marathoner. Explore Scorch, HardBeet, Aurora, and The Receiver." />
+<meta name="description" content="Can Iseri is a technical product leader, founder of Katsuko, author of The Receiver, and marathoner. Explore current work across Scorch, HardBeet, and Aurora." />
 <meta name="theme-color" content="#09090C" />
 <link rel="canonical" href="https://caniseri.com/" />
 <link rel="icon" type="image/png" href="favicon.png" />
@@ -13,16 +14,17 @@
 <meta property="og:url" content="https://caniseri.com/" />
 <meta property="og:site_name" content="Can Iseri" />
 <meta property="og:title" content="Can Iseri | Technical Product Leader, Founder &amp; Writer" />
-<meta property="og:description" content="Complex systems made clear. Consumer products through Katsuko, speculative fiction, and endurance practice." />
-<meta property="og:image" content="https://caniseri.com/og-card.jpg" />
+<meta property="og:description" content="Complex systems made clear. Current product work through Katsuko, speculative fiction, and endurance practice." />
+<meta property="og:image" content="https://caniseri.com/og-card-2026-08.png" />
+<meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Can Iseri, technical product leader, founder, writer, and marathoner" />
+<meta property="og:image:alt" content="Can Iseri. Products, stories, and endurance." />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Can Iseri | Technical Product Leader, Founder &amp; Writer" />
-<meta name="twitter:description" content="Complex systems made clear. Consumer products through Katsuko, speculative fiction, and endurance practice." />
-<meta name="twitter:image" content="https://caniseri.com/og-card.jpg" />
-<meta name="twitter:image:alt" content="Can Iseri, technical product leader, founder, writer, and marathoner" />
+<meta name="twitter:description" content="Complex systems made clear. Current product work through Katsuko, speculative fiction, and endurance practice." />
+<meta name="twitter:image" content="https://caniseri.com/og-card-2026-08.png" />
+<meta name="twitter:image:alt" content="Can Iseri. Products, stories, and endurance." />
 <script>
   document.documentElement.classList.replace('no-js', 'js');
   addEventListener('error', function () {
@@ -41,7 +43,7 @@
       "url": "https://caniseri.com/",
       "image": "https://caniseri.com/can-iseri.jpg",
       "jobTitle": "Technical Product Leader",
-      "description": "Technical product leader, founder of Katsuko, writer, and marathoner.",
+      "description": "Technical product leader, founder of Katsuko, author, and marathoner.",
       "knowsAbout": [
         "Technical product leadership",
         "Regulated financial systems",
@@ -78,6 +80,10 @@
     --surface:#14141F;
     --surface-2:#191925;
     --text:#F4F1EA;
+    --paper:#F5F1E8;
+    --ink:#171612;
+    --paper-muted:#68645C;
+    --paper-accent:#C92F1B;
     --muted:#A4A1B2;
     --line:rgba(244,241,234,.11);
     --line-2:rgba(244,241,234,.2);
@@ -184,6 +190,25 @@
   .proof-item .n{ font-family:var(--font-display); font-size:clamp(1.2rem,2.2vw,1.65rem); font-weight:700; color:var(--text); }
   .proof-item .l{ margin-top:.2rem; color:var(--muted); font-size:.84rem; }
 
+  .now-band{ position:relative; overflow:hidden; padding:clamp(72px,9vw,118px) 0; background:var(--paper); color:var(--ink); }
+  .now-band::after{ content:""; position:absolute; width:420px; height:420px; right:-170px; top:-210px; border:1px solid rgba(23,22,18,.13); border-radius:50%; box-shadow:0 0 0 54px rgba(23,22,18,.035),0 0 0 108px rgba(23,22,18,.022); pointer-events:none; }
+  .now-head{ position:relative; z-index:2; display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:clamp(2rem,7vw,6rem); align-items:end; }
+  .now-band :focus-visible{ outline-color:var(--paper-accent); }
+  .now-kicker{ display:block; margin-bottom:1rem; color:var(--paper-accent); font-family:var(--font-display); font-size:.76rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+  .now-title{ font-size:clamp(3.1rem,7vw,6.25rem); line-height:.88; letter-spacing:-.055em; }
+  .now-title em{ display:block; color:var(--paper-accent); font-family:var(--font-serif); font-weight:500; letter-spacing:-.035em; }
+  .now-intro{ max-width:610px; color:var(--paper-muted); font-size:clamp(1.08rem,2.1vw,1.4rem); line-height:1.55; }
+  .now-intro strong{ color:var(--ink); font-family:var(--font-display); font-weight:600; }
+  .now-list{ position:relative; z-index:2; margin-top:clamp(2.5rem,6vw,5rem); border-top:1px solid rgba(23,22,18,.2); }
+  .now-item{ display:grid; grid-template-columns:72px minmax(0,1fr) auto; gap:clamp(1rem,3vw,2.3rem); align-items:start; padding:1.55rem 0; border-bottom:1px solid rgba(23,22,18,.2); }
+  .now-number{ color:var(--paper-accent); font-family:"Anton",var(--font-display); font-size:1.35rem; line-height:1; }
+  .now-copy{ display:grid; grid-template-columns:minmax(140px,.42fr) minmax(0,1fr); gap:clamp(1rem,4vw,3.5rem); align-items:start; }
+  .now-copy h3{ font-size:clamp(1.45rem,2.7vw,2.05rem); }
+  .now-status{ display:block; margin-top:.35rem; color:var(--paper-muted); font-family:var(--font-display); font-size:.7rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
+  .now-copy p{ max-width:66ch; color:var(--paper-muted); font-size:.95rem; line-height:1.65; }
+  .now-link{ display:inline-flex; align-items:center; gap:.4rem; padding:.25rem 0; color:var(--ink); border-bottom:1px solid currentColor; font-family:var(--font-display); font-size:.82rem; font-weight:700; white-space:nowrap; transition:color .2s,transform .2s var(--ease); }
+  .now-link:hover{ color:var(--paper-accent); transform:translateX(3px); }
+
   .status{ display:inline-flex; align-items:center; width:max-content; font-size:.75rem; line-height:1.35; font-family:var(--font-display); font-weight:700; letter-spacing:.07em; text-transform:uppercase; padding:.3rem .65rem; border-radius:100px; }
   .status.live{ background:color-mix(in srgb,var(--signal) 18%,transparent); color:var(--signal); }
   .status.beta{ background:color-mix(in srgb,var(--accent) 22%,transparent); color:#ff7b64; }
@@ -209,7 +234,7 @@
   .evidence-box p{ margin-top:.35rem; color:var(--text); font-size:.92rem; }
 
   .project-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.2rem; margin-top:1.2rem; }
-  .project-card{ background:var(--bg-2); border:1px solid var(--line); border-radius:var(--radius); padding:clamp(1.4rem,3vw,2rem); }
+  .project-card{ display:flex; flex-direction:column; background:var(--bg-2); border:1px solid var(--line); border-radius:var(--radius); padding:clamp(1.4rem,3vw,2rem); }
   .project-head{ display:flex; align-items:center; gap:1rem; margin-bottom:1.2rem; }
   .project-icon{ width:74px; height:74px; flex:none; object-fit:cover; border-radius:18px; border:1px solid var(--line); }
   .project-head h3{ font-size:1.55rem; margin-bottom:.35rem; }
@@ -219,6 +244,9 @@
   .decision p{ margin-top:.35rem; color:var(--muted); font-size:.9rem; }
   .project-proof{ margin-top:1rem; padding-top:1rem; border-top:1px solid var(--line); color:var(--text); font-size:.9rem; }
   .project-proof strong{ color:var(--signal); }
+  .project-actions{ display:flex; flex-wrap:wrap; align-items:center; gap:.8rem; margin-top:auto; padding-top:1.25rem; }
+  .project-link{ display:inline-flex; align-items:center; gap:.42rem; color:var(--text); border-bottom:1px solid var(--line-2); padding-bottom:.1rem; font-family:var(--font-display); font-size:.84rem; font-weight:700; transition:color .2s,border-color .2s; }
+  .project-link:hover{ color:var(--accent); border-color:var(--accent); }
 
   .work-band{ background:linear-gradient(180deg,var(--bg-2),transparent 72%); }
   .impact-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-top:2rem; }
@@ -298,6 +326,7 @@
     .nav-links .btn{ margin:1rem var(--pad); }
     .nav-toggle{ display:grid; }
     .feature-grid,.writing,.athletics-grid,.about-grid{ grid-template-columns:1fr; }
+    .now-head{ grid-template-columns:1fr; }
     .writing{ grid-template-areas:"copy" "cover"; }
     .feature-visual{ min-height:360px; }
     .feature-logo-frame{ width:min(58%,260px); }
@@ -317,6 +346,9 @@
     .proof-grid{ grid-template-columns:1fr; }
     .proof-item{ border-left:0; border-top:1px solid var(--line); }
     .proof-item:first-child{ border-top:0; }
+    .now-item{ grid-template-columns:44px minmax(0,1fr); }
+    .now-copy{ grid-template-columns:1fr; gap:.65rem; }
+    .now-link{ grid-column:2; justify-self:start; }
     .section-head{ display:block; }
     .section-head .lead{ margin-top:.8rem; }
     .case-points,.career-arc{ grid-template-columns:1fr; }
@@ -342,8 +374,8 @@
   <div class="wrap nav-inner">
     <a href="#home" class="brand" aria-label="Can Iseri, home">CAN&nbsp;ISERI</a>
     <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
-      <a class="link" href="#projects">Selected work</a>
       <a class="link" href="#work">Professional</a>
+      <a class="link" href="#projects">Selected work</a>
       <a class="link" href="#writing">Writing</a>
       <a class="link" href="#athletics">Athletics</a>
       <a class="link" href="#about">About</a>
@@ -367,10 +399,10 @@
         </button>
         <span class="sr-only">products people trust, systems made clear, decisions people can use, and stories worth carrying.</span>
       </p>
-      <p class="lede reveal">For more than a decade, I have led technical product work inside <strong>complex, regulated environments</strong>. Through Katsuko, I carry that practice into consumer software. I also write speculative fiction and run marathons.</p>
+      <p class="lede reveal">I currently lead technical product work inside <strong>complex, regulated environments</strong>. Through Katsuko, I bring the same discipline to consumer software. I also write speculative fiction and run marathons.</p>
       <div class="hero-ctas reveal">
-        <a href="#projects" class="btn btn-primary">Explore selected work <span class="arw" aria-hidden="true">→</span></a>
-        <a href="#contact" class="btn">Start a conversation <span class="arw" aria-hidden="true">→</span></a>
+        <a href="#work" class="btn btn-primary">See leadership impact <span class="arw" aria-hidden="true">→</span></a>
+        <a href="#projects" class="btn">Explore independent work <span class="arw" aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -378,8 +410,47 @@
   <section class="proof-rail" aria-label="Selected credentials">
     <div class="wrap proof-grid">
       <div class="proof-item"><div class="n">10+ years</div><div class="l">Technical product leadership in complex systems</div></div>
-      <div class="proof-item"><div class="n">3 independent builds</div><div class="l">Scorch, HardBeet, and Aurora developed through Katsuko</div></div>
-      <div class="proof-item"><div class="n">Published</div><div class="l">The Receiver, a Kindle short released in 2026</div></div>
+      <div class="proof-item"><div class="n">3 products in motion</div><div class="l">Private pilot, release hardening, and internal beta work through Katsuko</div></div>
+      <div class="proof-item"><div class="n">Published author</div><div class="l">The Receiver, a Kindle short released in July 2026</div></div>
+    </div>
+  </section>
+
+  <section class="now-band" id="now" aria-labelledby="now-title">
+    <div class="wrap">
+      <div class="now-head">
+        <div class="reveal">
+          <span class="now-kicker">Now / August 2026</span>
+          <h2 class="now-title" id="now-title">A studio<br><em>in motion.</em></h2>
+        </div>
+        <p class="now-intro reveal">The latest chapter is less about adding features and more about crossing thresholds. <strong>Three consumer products now have public identities, disciplined release boundaries, and a clear next gate.</strong></p>
+      </div>
+
+      <div class="now-list">
+        <article class="now-item reveal">
+          <div class="now-number" aria-hidden="true">01</div>
+          <div class="now-copy">
+            <div><h3>Scorch</h3><span class="now-status">Private pilot candidate</span></div>
+            <p>Shareable challenge previews and closest-finish rematches are implemented. Next: physical-device GPS and final legal and security review.</p>
+          </div>
+          <a class="now-link" href="https://scorchapp.xyz/" target="_blank" rel="noopener" aria-label="Visit Scorch, opens in a new tab">Visit Scorch <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="now-item reveal">
+          <div class="now-number" aria-hidden="true">02</div>
+          <div class="now-copy">
+            <div><h3>HardBeet</h3><span class="now-status">Cross-platform release hardening</span></div>
+            <p>The public site and iOS and Android candidates are in place. Next: real-device push and accessibility QA before public launch.</p>
+          </div>
+          <a class="now-link" href="https://gethardbeet.com/" target="_blank" rel="noopener" aria-label="Visit HardBeet, opens in a new tab">Visit HardBeet <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="now-item reveal">
+          <div class="now-number" aria-hidden="true">03</div>
+          <div class="now-copy">
+            <div><h3>Aurora</h3><span class="now-status">Internal beta build</span></div>
+            <p>The public site and internal native build paths are in place. Next: approved live-source coverage, observed planning sessions, and store distribution.</p>
+          </div>
+          <a class="now-link" href="https://auroracruising.com/" target="_blank" rel="noopener" aria-label="Visit Aurora, opens in a new tab">Visit Aurora <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -397,11 +468,11 @@
         <div class="feature-grid">
           <div class="feature-visual">
             <div class="feature-logo-frame">
-              <img src="scorch-icon.png" alt="Scorch flame mark" width="2048" height="2048" loading="lazy" decoding="async" />
+              <img src="scorch-icon.png" alt="Scorch flame mark" width="1024" height="1024" loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="feature-copy">
-            <span class="status beta">Private pilot build</span>
+            <span class="status beta">Private pilot candidate</span>
             <h3>Scorch</h3>
             <p class="summary">Scorch makes head-to-head running fair across different paces. It turns mapped local routes into scheduled races where each runner gets a pace-based start and the whole field races toward one finish.</p>
             <div class="case-points">
@@ -419,14 +490,15 @@
               </div>
               <div class="case-point">
                 <h4>What is real now</h4>
-                <p>The complete free-race lifecycle is validated against the backend. Outdoor physical-device testing is the next gate.</p>
+                <p>Automated integration checks cover the complete free-race lifecycle. Shareable challenge previews, finish-to-rematch recaps, and telemetry recovery are implemented. Physical-device GPS and final legal and security review remain.</p>
               </div>
             </div>
             <div class="evidence-box">
-              <strong>Verified build evidence</strong>
-              <p>As of July 2026, 256 automated tests and 118 release-readiness checks pass across registration, server-timed starts, route telemetry, evidence-backed finishes, review, and results.</p>
+              <strong>Automated build evidence</strong>
+              <p>As of August 2026, the candidate passes its automated test and release-readiness suites across registration, fair starts, route telemetry, resilient uploads, evidence-backed finishes, review, and results.</p>
             </div>
-            <div class="chip-row" style="margin-top:1rem"><span class="chip">Fair starts</span><span class="chip">Live route progress</span><span class="chip">Privacy boundaries</span><span class="chip">Release hardening</span></div>
+            <div class="chip-row" style="margin-top:1rem"><span class="chip">Fair starts</span><span class="chip">Share-first challenges</span><span class="chip">Finish stories</span><span class="chip">Telemetry recovery</span></div>
+            <div class="project-actions"><a class="project-link" href="https://scorchapp.xyz/" target="_blank" rel="noopener" aria-label="Visit the Scorch website, opens in a new tab">Visit Scorch <span aria-hidden="true">↗</span></a></div>
           </div>
         </div>
       </article>
@@ -435,27 +507,29 @@
         <article class="project-card reveal">
           <div class="project-head">
             <img class="project-icon" src="hardbeet-icon.png" alt="HardBeet lightning mark" width="1024" height="1024" loading="lazy" decoding="async" />
-            <div><h3>HardBeet</h3><span class="status beta">Active development</span></div>
+            <div><h3>HardBeet</h3><span class="status beta">Cross-platform release hardening</span></div>
           </div>
-          <p class="project-summary">Care should not require surveillance. HardBeet creates a respectful daily check-in agreement: one deliberate tap, people you approve, and a clear escalation path when a check-in is missed.</p>
+          <p class="project-summary">HardBeet is designed around explicit daily check-in sharing for independent loved ones. One deliberate tap creates the shared signal, and approved people can see whether the check-in happened.</p>
           <div class="decision">
             <b>Product boundary</b>
-            <p>Only a deliberate tap creates the shared signal. No live location or private phone activity is exposed, and offline check-ins stay visibly unconfirmed until the backend receives them.</p>
+            <p>Only a deliberate tap creates the shared signal. The current app design does not request live-location or private-phone-activity access, and offline check-ins stay visibly unconfirmed until the backend receives them.</p>
           </div>
-          <p class="project-proof"><strong>Build-readiness evidence:</strong> React Native client, Supabase backend, consent model, notification escalation, privacy controls, offline behavior, localization foundation, security hardening, and release QA. The current candidate has passed 29 automated tests plus backend, access-control, and account-deletion checks. Physical-device QA is the next gate before external distribution.</p>
+          <p class="project-proof"><strong>Build-readiness evidence:</strong> As of August 2026, main passes automated tests plus type-safety, release-readiness, static-site, and secret-scanning gates. Selected access-control and account-deletion paths are covered. The public site is live, and iOS and Android candidates are configured. Real-device push and accessibility QA remain before public launch.</p>
+          <div class="project-actions"><a class="project-link" href="https://gethardbeet.com/" target="_blank" rel="noopener" aria-label="Visit the HardBeet website, opens in a new tab">Visit HardBeet <span aria-hidden="true">↗</span></a></div>
         </article>
 
         <article class="project-card reveal">
           <div class="project-head">
             <img class="project-icon" src="aurora-icon.svg" alt="Aurora cruise intelligence mark" width="512" height="512" loading="lazy" decoding="async" />
-            <div><h3>Aurora</h3><span class="status wip">Working prototype</span></div>
+            <div><h3>Aurora</h3><span class="status wip">Internal beta build</span></div>
           </div>
-          <p class="project-summary">Aurora turns cruise history, route preferences, cabin needs, and a price threshold into explainable fit recommendations and quiet price-watch opportunities.</p>
+          <p class="project-summary">Aurora is a source-policy-aware cruise decision and price-watch product. Cruise Passport and Itinerary Fit turn route history, cabin and party needs, trusted lines, and price thresholds into explainable matches and precise watches.</p>
           <div class="decision">
             <b>Product boundary</b>
-            <p>Recommendations expose route fit, tradeoffs, and confidence before asking someone to watch or act. Unsupported or private data paths are blocked instead of quietly scraped.</p>
+            <p>Recommendations expose route fit, tradeoffs, and confidence before asking someone to watch or act. The current design permits configured, approved sources rather than quietly scraping unsupported paths.</p>
           </div>
-          <p class="project-proof"><strong>Prototype evidence:</strong> Cruise Passport, itinerary-fit model, Decision Confidence layer, privacy boundaries, source-policy architecture, installable PWA, backend scaffolding, and native shells. The fixture-backed validation suite currently passes 25 of 25 tests. A compliant live-source adapter and observed planning sessions are the next gates.</p>
+          <p class="project-proof"><strong>Build evidence:</strong> The public site is live, and native app paths are being validated internally. Automated checks cover policy-gated adapters, browser boot, alert logic, persistence, account isolation, and selected security behaviors. Store distribution, approved live-source coverage, and observed planning sessions remain.</p>
+          <div class="project-actions"><a class="project-link" href="https://auroracruising.com/" target="_blank" rel="noopener" aria-label="Visit the Aurora website, opens in a new tab">Visit Aurora <span aria-hidden="true">↗</span></a></div>
         </article>
       </div>
     </div>
@@ -465,26 +539,26 @@
     <div class="wrap">
       <span class="idx reveal">(02)</span>
       <h2 class="section-title reveal">Proof from complex systems.</h2>
-      <p class="lead reveal">I currently lead technical product work for a global financial institution. The role spans roadmap decisions, cross-functional alignment, and hands-on technical delivery across product, engineering, analytics, risk, and control partners. Selected outcomes are anonymized to protect internal systems and teams.</p>
+      <p class="lead reveal">I currently lead technical product work in a regulated enterprise environment. The role spans roadmap decisions, cross-functional alignment, and hands-on technical delivery across product, engineering, analytics, risk, and control partners. Selected outcomes are rounded and summarized to protect institutions, systems, and teams.</p>
 
       <div class="impact-grid">
         <article class="impact-card reveal">
-          <div class="metric">35%</div>
-          <h3>More efficient core workflows</h3>
-          <p>Led reengineering across model validation, risk rating, and change-management workflows in a core risk platform.</p>
+          <div class="metric">~35%</div>
+          <h3>Less friction in core workflows</h3>
+          <p>Led reengineering across selected validation, risk, and change-management workflows.</p>
         </article>
         <article class="impact-card reveal">
-          <div class="metric">50%</div>
-          <h3>Faster breach detection</h3>
-          <p>Built an automated model-performance evaluation approach across forecasting, trading, and valuation models.</p>
+          <div class="metric">~50%</div>
+          <h3>Shorter monitoring cycles</h3>
+          <p>Built an automated performance-evaluation approach for complex analytical models.</p>
         </article>
         <article class="impact-card reveal">
           <div class="metric">3×</div>
-          <h3>Greater API adoption</h3>
-          <p>Led model-risk API enhancements that expanded adoption across internal product and platform consumers.</p>
+          <h3>Broader API adoption</h3>
+          <p>Led API enhancements that expanded adoption across internal product and platform consumers.</p>
         </article>
       </div>
-      <p class="privacy-note reveal">Selected figures reflect completed work and are anonymized. Confidential platform names, teams, and regulatory details are intentionally omitted.</p>
+      <p class="privacy-note reveal">Figures are rounded and describe selected completed work. Confidential institutions, platform names, teams, and control details are intentionally omitted.</p>
 
       <div class="career-arc">
         <article class="career-card reveal">
@@ -495,7 +569,7 @@
         <article class="career-card reveal">
           <div class="when">Earlier foundation</div>
           <h3>Data and platforms at enterprise scale.</h3>
-          <p>Earlier work included a multi-billion-dollar syndicated-loan platform migration, analytics integration, and web-service delivery across financial and healthcare systems.</p>
+          <p>Earlier work included a large-scale syndicated-loan platform migration, analytics integration, and web-service delivery across financial and healthcare systems.</p>
         </article>
       </div>
 
@@ -566,7 +640,7 @@
         <div class="about-copy reveal">
           <h2 class="section-title">The person behind the systems.</h2>
           <p>I am Can Iseri, a <strong>technical product leader, independent builder, writer, and marathoner</strong> based in New York. My professional work lives inside regulated financial systems. My independent work ships through Katsuko.</p>
-          <p><strong>Katsuko is the label for Scorch, HardBeet, Aurora, and The Receiver.</strong> It gives me a place to carry one practice across software and story: make a difficult idea clear enough to use, test, or feel.</p>
+          <p><strong>Katsuko is the independent studio behind Scorch, HardBeet, Aurora, and The Receiver.</strong> It gives me a place to carry one practice across software and story: make a difficult idea clear enough to use, test, or feel.</p>
           <p>I work close to the full arc, from product promise and UX through engineering, privacy boundaries, validation, and release preparation. The medium changes. The standard does not.</p>
           <div class="klockup"><div><div class="kmark">KATSUKO</div><div class="kcap">Software · stories · experiments · by Can Iseri</div></div></div>
         </div>
@@ -582,9 +656,9 @@
     <div class="wrap contact-inner">
       <span class="eyebrow reveal" style="justify-content:center">Open to thoughtful conversations</span>
       <h2 class="reveal">Does something here<br><span class="em">resonate?</span></h2>
-      <p class="lead reveal">I am open to thoughtful conversations about technical product leadership, independent builds, publishing, and aligned collaborations. Tell me what you are working on and what a useful conversation would look like.</p>
+      <p class="lead reveal">I am open to thoughtful conversations about senior technical product leadership, focused advisory work, independent products, and publishing. Tell me what you are working on and what a useful conversation would look like.</p>
       <div class="mailrow reveal">
-        <a href="mailto:iserican@gmail.com" class="mail" id="mailLink">iserican@gmail.com</a>
+        <a href="mailto:hello@katsuko.studio" class="mail" id="mailLink">hello@katsuko.studio</a>
         <button class="copybtn" id="copyBtn" type="button" aria-live="polite">Copy email</button>
       </div>
     </div>
@@ -599,7 +673,7 @@
 </footer>
 
 <script>
-  const MAIL = "iserican@gmail.com";
+  const MAIL = "hello@katsuko.studio";
   const MAIL_SUBJECT = "A conversation from caniseri.com";
   const MAIL_BODY = "Hi Can,\n\nI came across your site and wanted to reach out about:\n\n\nBest,\n";
   const mailto = "mailto:" + MAIL + "?subject=" + encodeURIComponent(MAIL_SUBJECT) + "&body=" + encodeURIComponent(MAIL_BODY);
